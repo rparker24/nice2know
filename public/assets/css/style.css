@@ -522,3 +522,8 @@ img::-moz-selection {
     color: #fff;
     background: 0 0;
 }
+
+#one img{
+    width:200px;
+    height: 200px;
+}
