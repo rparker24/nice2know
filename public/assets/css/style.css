@@ -1,0 +1,75 @@
+body{
+background: white;
+color: #6ca01b !important;
+
+}
+
+h1{
+	color:#0090d1;
+	padding: 0px;
+	margin: 2px;
+	margin-bottom: 8px;
+}
+h2{
+	font-weight: bold;
+}
+h6{
+	font-weight: bold;
+}
+
+button{
+	background-color: black;
+ 	color: floralwhite;
+}
+
+.wholePage{
+}
+
+
+img{
+	
+}
+
+
+#newlyAdded {
+	float: left;	
+  margin: 8px;
+  padding: 10px;
+}
+#ateList {
+	float:left;
+
+  border:solid;
+  border: .5px black;
+  color: darkgrey;
+  width: 400px;
+  height: 100%;
+}
+
+
+.create-update-form {
+  color: #6ca01b;
+  margin-bottom: -20px;
+  padding: 5px;
+}
+
+.form-group {
+  margin-bottom: 5px;
+}
+
+
+#newlyAddedList{
+
+	width: 400px;
+	margin-left: 50px;
+}
+
+#ate{
+	float: left;
+	width: 400px;
+margin-right: 70px;
+
+}
+
+
+

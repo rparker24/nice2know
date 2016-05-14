@@ -1,0 +1,83 @@
+<div class="wholePage">
+  
+
+  <center>
+<form class="create-update-form" action="burgers/create" method="POST">
+  <div class="form-group">
+    <label for="ca"><h5>Add a new Burger to Menu:</h5></label>
+    <input type="text" id="ca" name="name">
+  </div>
+
+  <div class="form-group">
+    <input type="radio" name="topic" value="0" checked><h6> BRAND NEW! </h6><br>
+    <input type="radio" name="topic" value="1"><h6> ATE IT! </h6>
+  </div>
+
+  <button type="submit">Submit</button>
+</form>
+  </center>
+
+
+
+
+
+
+<div id="newlyAdded">
+<center><h2>New Menu Burgers</h2></center>
+
+<ul style="list-style-type:none">
+  {{#each burgers}}
+    {{#unless this.topic}}
+      <li id="newlyAddedList">
+      &nbsp; 
+      {{this.id}}.&nbsp; 
+        {{this.burger_name}}
+         
+
+        <form action="burgers/update/{{this.id}}?_method=PUT" method="POST">
+          <input type="hidden" name="topic" value="true">
+          <button type="submit">Devour</button>
+        </form>
+
+    
+      </li>
+    {{/unless}}
+  {{/each}}
+</ul>
+</div>
+
+
+
+<div id="ate">
+
+
+<center><h2>Burgers Eaten</h2></center>
+
+<ul style="list-style-type:none">
+  {{#each burgers}}
+    {{#if this.topic}}
+      <li id="ateList">
+      &nbsp; 
+       {{this.id}}.&nbsp; 
+        {{this.facts}}
+
+        <form action="facts/update/{{this.id}}?_method=PUT" method="POST">
+          <input type="hidden" name="topic" value="false">
+          <button type="submit">Vomit?</button>
+        </form>
+
+
+      </li>
+    {{/if}}
+  {{/each}}
+</ul>
+
+
+
+</div>
+
+
+</div> /.container -->
+
+  </body>
+</html>
