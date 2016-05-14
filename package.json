@@ -1,31 +1,37 @@
 {
-  "name": "burgertime",
+  "name": "nice2know",
   "version": "1.0.0",
-  "description": "create delete post get",
+  "description": "Facts Given to logged in registered users depending on topics",
   "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "cookie-parser": "^1.4.1",
+    "express": "^4.13.4",
+    "handlebars": "^4.0.5",
+    "method-override": "^2.3.5",
+    "mysql": "^2.10.2",
+    "orm": "^3.1.0",
+    "path": "^0.12.7",
+    "sequelize": "^3.23.1",
+    "express-handlebars": "^2.0.1"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
   "repository": {
     "type": "git",
-    "url": "github.com/jameslado/burger"
+    "url": "git+https://github.com/jimmylado/Factify.git"
   },
   "keywords": [
-    "burger"
+    "facts",
+    "nice2know"
   ],
-  "author": "james lado",
+  "author": "Lisa James Vincent Robert",
   "license": "ISC",
-  "dependencies": {
-    "body-parser": "^1.15.1",
-    "express-handlebars": "^2.0.1",
-    "express": "^4.13.4",
-    "handlebars": "^4.0.5",
-    "method-override": "^2.3.5",
-    "mysql": "^2.10.2",
-    "path": "^0.12.7",
-    "orm": "^3.1.0",
-    "sequelize": "^3.23.1"
+  "bugs": {
+    "url": "https://github.com/jimmylado/Factify/issues"
   },
-  "devDependencies": {}
+  "homepage": "https://github.com/jimmylado/Factify#readme"
 }
