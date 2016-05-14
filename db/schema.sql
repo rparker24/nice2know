@@ -2,11 +2,12 @@
 create database facts_db;
 use facts_db;
 
-create TABLE user(
+CREATE TABLE user(
 	username varchar(255) NOT NULL,
 	id int NOT NULL AUTO_INCREMENT,
 	email varchar(255) NOT NULL,
-	password varchar(255) NOT NULL
+	password varchar(255) NOT NULL,
+	PRIMARY KEY(id)
 );
 
 CREATE TABLE facts

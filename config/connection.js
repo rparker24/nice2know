@@ -8,7 +8,7 @@ var source = {
         host: 'localhost',
         user: 'root',
         password: "",
-        database: "burgers_db"
+        database: "facts_db"
     },
     jawsDB: {
       host: 'izm96dhhnwr2ieg0.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
@@ -19,7 +19,7 @@ var source = {
 }
 
 // connection 
-var selectedSource = source.jawsDB;
+var selectedSource = source.localhost;
 
 // Creates mySQL connection using Sequelize
 var sequelize = new Sequelize(selectedSource.database, selectedSource.user, selectedSource.password, {
