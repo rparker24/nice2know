@@ -2,24 +2,20 @@ var Sequelize = require("sequelize");
 
 var sequelizeConnection = require("../config/connection.js");
 
-
-
-var Fact = sequelizeConnection.define("fact", {
+var Category = sequelizeConnection.define("category", {
     id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         primaryKey: true
     },
-    fact: {
+    category_name: {
         type: Sequelize.STRING,
     },
-    topic: {
+    description: {
         type: Sequelize.STRING,
     }
 });
 
-// mysql
-
-Fact.sync();
-console.log(Fact)
-module.exports = Fact;
+Category.sync();
+console.log(Category)
+module.exports = Category;

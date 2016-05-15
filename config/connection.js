@@ -18,7 +18,7 @@ var source = {
     }
 }
 
-// connection 
+// connection
 var selectedSource = source.localhost;
 
 // Creates mySQL connection using Sequelize
