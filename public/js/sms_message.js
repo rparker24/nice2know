@@ -1,13 +1,12 @@
 // Twilio Credentials 
-var accountSid = 'ACb9de2218cef1396617095b07870e00af'; 
-var authToken = '9a07752be537e110ba3b023daba25c84'; 
-var client = require('twilio')(accountSid, authToken);
 
-client.sms.messages.create({
+var client = require('twilio')(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
 
-    to:'+12018927991', // Any number Twilio can deliver to // users.phonenumber
+client.sendMessage({
+
+    to:'+12018927991', // Any number Twilio can deliver to 
     from: '+15005550006', // test number for testing. 
-    body: 'Nice 2 Know Test Text Message.' // body of the SMS message //Fact.fact
+    body: 'Nice 2 Know Test Text Message.' // body of the SMS message 
 
 }, function(err, responseData) { //this function is executed when a response is received from Twilio
 
@@ -22,3 +21,5 @@ client.sms.messages.create({
 
     }
 });
+
+module.exports = client;
