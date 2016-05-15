@@ -23,5 +23,6 @@ app.set('view engine', 'handlebars');
 var routes = require('./controllers/facts_controller.js');
 app.use('/', routes);
 
-var port = 3000;
+// have heroku select the port otherwise use port 3000 locally
+var port = process.env.PORT || 3000;
 app.listen(port);
