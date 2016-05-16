@@ -1,7 +1,8 @@
 
 var express = require('express');
 var bodyParser = require('body-parser');
-var methodOverride = require('method-override')
+var methodOverride = require('method-override');
+var session = require('express-session');
 
 var app = express();
 
@@ -20,7 +21,10 @@ app.engine('handlebars', exphbs({
 }));
 app.set('view engine', 'handlebars');
 
+var users_controllers = require('./controllers/users_controllers');
 var routes = require('./controllers/facts_controller.js');
+
+app.use('/', users_controllers);
 app.use('/', routes);
 
 // have heroku select the port otherwise use port 3000 locally

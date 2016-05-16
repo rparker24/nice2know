@@ -1,20 +1,22 @@
-
 {
   "name": "nice2know",
   "version": "1.0.0",
   "description": "Facts Given to logged in registered users depending on topics",
   "main": "server.js",
   "dependencies": {
+    "bcrypt": "^0.8.6",
     "body-parser": "^1.15.1",
     "cookie-parser": "^1.4.1",
     "express": "^4.13.4",
+    "express-handlebars": "^2.0.1",
+    "express-session": "^1.13.0",
     "handlebars": "^4.0.5",
     "method-override": "^2.3.5",
     "mysql": "^2.10.2",
     "orm": "^3.1.0",
     "path": "^0.12.7",
     "sequelize": "^3.23.1",
-    "express-handlebars": "^2.0.1"
+    "twilio": "^2.9.1"
   },
   "devDependencies": {},
   "scripts": {
