@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var bcrypt = require('bcrypt');
-
 var User = require('../models/User.js');
 
+//render new user form
 router.get('/users/new', function(req,res) {
   res.render('users/new');
 });
@@ -32,29 +32,30 @@ router.post('/users/login', function(req, res) {
           req.session.user_email = user.email;
           req.session.username = user.username;
 
-          res.redirect('/');
+          res.redirect('/users/sign-in');
         }
     });
   })
 });
-
-//check for username 
+ 
 router.post('/users/create', function(req,res) {
   bcrypt.genSalt(10, function(err, salt) {
-      bcrypt.hash(req.body.password, salt, function(err, hash) {
-        User.create({
-          username: req.body.username,
-          email: req.body.email,
-          password_hash: hash
-        }).then(function(user){
+    bcrypt.hash(req.body.password, salt, function(err, hash) {
+      User.create({
+        username: req.body.username,
+        email: req.body.email,
+        password_hash: hash,
+        phone: req.body.phone,
+        countrycode: req.body.countrycode
+      }).then(function(user){
 
-          req.session.logged_in = true;
-          req.session.user_id = user.id;
-          req.session.user_email = user.email;
-          req.session.username = user.username;
-          res.redirect('/')
-        });
+        req.session.logged_in = true;
+        req.session.user_id = user.id;
+        req.session.user_email = user.email;
+        req.session.username = user.username;
+        res.redirect('/')
       });
+    });
   });
 });
 

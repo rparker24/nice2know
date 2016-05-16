@@ -16,7 +16,17 @@ var User = sequelizeConnection.define("user", {
   },
   password_hash: {
     type: Sequelize.STRING,
-  }
+  },
+  phone: {
+    type: Sequelize.STRING,
+  },
+  countrycode: {
+    type: Sequelize.STRING,
+  },
+  subscribed: {
+    type: Sequelize.BOOLEAN,
+    default: false
+  },
 },
 {
   underscored: true

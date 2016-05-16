@@ -21,7 +21,10 @@ app.engine('handlebars', exphbs({
 }));
 app.set('view engine', 'handlebars');
 
+var users_controllers = require('./controllers/users_controllers');
 var routes = require('./controllers/facts_controller.js');
+
+app.use('/', users_controllers);
 app.use('/', routes);
 
 var port = 3000;
