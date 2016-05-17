@@ -21,7 +21,7 @@ var User = sequelizeConnection.define("user", {
     type: Sequelize.STRING,
   },
   countrycode: {
-    type: Sequelize.STRING,
+    type: Sequelize.INTEGER,
   },
   subscribed: {
     type: Sequelize.BOOLEAN,

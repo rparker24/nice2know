@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var bcrypt = require('bcrypt');
+var bcrypt = require('bcryptjs');
 var User = require('../models/User.js');
 
 //render new user form
@@ -37,7 +37,7 @@ router.post('/users/login', function(req, res) {
     });
   })
 });
- 
+
 router.post('/users/create', function(req,res) {
   User.findAll({
     where: {$or: [{email: req.body.email}, {username: req.body.username}]}

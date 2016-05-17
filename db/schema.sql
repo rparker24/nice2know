@@ -1,19 +1,22 @@
 
-create database facts_db;
+CREATE DATABASE facts_db;
 use facts_db;
 
-CREATE TABLE user(
+CREATE TABLE users(
 	username varchar(255) NOT NULL,
 	id int NOT NULL AUTO_INCREMENT,
 	email varchar(255) NOT NULL,
 	password_hash varchar(255) NOT NULL,
+	phone varchar(255) NOT NULL,
+	countrycode int NOT NULL,
+	subscribed BOOLEAN,
 	PRIMARY KEY(id)
 );
 
 CREATE TABLE facts(
 	id int NOT NULL AUTO_INCREMENT,
 	fact varchar(255) NOT NULL,
-	topic varchar(255) NOT NULL,
+	category_id varchar(255) NOT NULL,
 	PRIMARY KEY(id)
 );
 
@@ -24,3 +27,16 @@ CREATE TABLE categories(
 	PRIMARY KEY(id)
 );
 
+
+CREATE TABLE subscriptions(
+	id int NOT NULL,
+	user_id int NOT NULL,
+	category_id it NOT NULL,
+	
+);
+
+CREATE TABLE user_facts(
+	id int NOT NULL,
+	user_id int NOT NULL,
+	fact_id int NOT NULL
+);

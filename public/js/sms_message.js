@@ -1,11 +1,10 @@
-// Twilio Credentials 
-
+var config = require('./config');
 var client = require('twilio')(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
-// console.log(process.env.TWILIO_ACCOUNT_SID);
+
 client.sendMessage({
 
-    to:'+12018927991', // Any number Twilio can deliver to 
-    from: '+15005550006', // test number for testing. Actual number is in Twilio account
+    to: to, //'+' + countrycode + phone, // Any number Twilio can deliver to. Must register number with Twilio because account is free 
+    from: config.twilioNumber, // test number for testing. Actual number is in Twilio account
     body: 'Nice 2 Know Test Text Message.' // body of the SMS message 
 
 }, function(err, responseData) { //this function is executed when a response is received from Twilio
@@ -19,3 +18,5 @@ client.sendMessage({
 });
 
 module.exports = client;
+
+

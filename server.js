@@ -3,7 +3,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var session = require('express-session');
-
+var request = require('request');
 var app = express();
 
 //Serve static content for the app from the "public" directory in the application directory.
@@ -21,7 +21,7 @@ app.engine('handlebars', exphbs({
 }));
 app.set('view engine', 'handlebars');
 
-var users_controllers = require('./controllers/users_controllers');
+var users_controller = require('./controllers/users_controller.js');
 var routes = require('./controllers/facts_controller.js');
 
 app.use('/', users_controllers);

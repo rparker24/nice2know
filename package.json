@@ -4,7 +4,7 @@
   "description": "Facts Given to logged in registered users depending on topics",
   "main": "server.js",
   "dependencies": {
-    "bcrypt": "^0.8.6",
+    "bcryptjs": "^2.3.0",
     "body-parser": "^1.15.1",
     "cookie-parser": "^1.4.1",
     "express": "^4.13.4",
@@ -15,6 +15,7 @@
     "mysql": "^2.10.2",
     "orm": "^3.1.0",
     "path": "^0.12.7",
+    "request": "^2.72.0",
     "sequelize": "^3.23.1",
     "twilio": "^2.9.1"
   },
