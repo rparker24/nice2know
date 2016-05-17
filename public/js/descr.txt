@@ -1,0 +1,27 @@
+get all the facts that I can send a user
+
+- you want to get facts from categories that the user subscribed to 
+
+AND you only want to get facts that have not been sent to the user already
+
+/* this gets me all the facts for subscriptions that the user is subscribed to */ 
+select * 
+from facts
+left join categories as cats 
+on cats.id = facts.category_id
+left join subscriptions as subs
+on subs.category_id = cats.id 
+where subs.user_id = req.session.user_id 
+
+
+/* this gets me all the facts for subscriptions that the user is subscribed to */ 
+/* this MINUSes the facts that have already been sent to the user */
+select * 
+from facts
+left join categories as cats 
+on cats.id = facts.category_id
+left join subscriptions as subs
+on subs.category_id = cats.id 
+left join user_facts as ufs 
+on ufs.fact_id = facts.id 
+where subs.user_id = req.session.user_id AND ufs.user_id = req.session.user_id AND facts.id != ufs.fact_id
