@@ -31,7 +31,7 @@ CREATE TABLE categories(
 CREATE TABLE subscriptions(
 	id int NOT NULL,
 	user_id int NOT NULL,
-	category_id it NOT NULL,
+	category_id int NOT NULL,
 	
 );
 

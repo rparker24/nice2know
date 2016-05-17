@@ -69,7 +69,7 @@ router.post('/users/create', function(req,res) {
 });
 
 
-router.delete('/users/subscribe/:id', function(req, res) {
+router.update('/users/subscribe/:id', function(req, res) {
   if(req.session.logged_in) {
 
     Fact.findAll({

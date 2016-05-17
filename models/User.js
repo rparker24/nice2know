@@ -2,7 +2,7 @@ var Sequelize = require("sequelize");
 
 var sequelizeConnection = require("../config/connection.js");
 
-var User = sequelizeConnection.define("user", {
+var User = sequelizeConnection.define("users", {
   id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
