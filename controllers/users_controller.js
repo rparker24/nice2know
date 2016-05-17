@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var bcrypt = require('bcrypt');
+var bcrypt = require('bcryptjs');
 var User = require('../models/User.js');
 
 //render new user form
@@ -37,7 +37,7 @@ router.post('/users/login', function(req, res) {
     });
   })
 });
- 
+
 router.post('/users/create', function(req,res) {
   bcrypt.genSalt(10, function(err, salt) {
     bcrypt.hash(req.body.password, salt, function(err, hash) {
