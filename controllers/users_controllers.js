@@ -39,24 +39,58 @@ router.post('/users/login', function(req, res) {
 });
  
 router.post('/users/create', function(req,res) {
-  bcrypt.genSalt(10, function(err, salt) {
-    bcrypt.hash(req.body.password, salt, function(err, hash) {
-      User.create({
-        username: req.body.username,
-        email: req.body.email,
-        password_hash: hash,
-        phone: req.body.phone,
-        countrycode: req.body.countrycode
-      }).then(function(user){
+  User.findAll({
+    where: {$or: [{email: req.body.email}, {username: req.body.username}]}
+  }).then(function(users) {
+    if(users.length > 0) {
+      res.send("We already have an account with this username");
+    } else {
 
-        req.session.logged_in = true;
-        req.session.user_id = user.id;
-        req.session.user_email = user.email;
-        req.session.username = user.username;
-        res.redirect('/')
-      });
-    });
+      bcrypt.genSalt(10, function(err, salt) {
+        bcrypt.hash(req.body.password, salt, function(err, hash) {
+          User.create({
+            username: req.body.username,
+            email: req.body.email,
+            password_hash: hash,
+            phone: req.body.phone,
+            countrycode: req.body.countrycode
+          }).then(function(user){
+
+            req.session.logged_in = true;
+            req.session.user_id = user.id;
+            req.session.user_email = user.email;
+            req.session.username = user.username;
+            res.redirect('/');
+          });
+        });
+      });   
+    }
   });
 });
+
+
+router.delete('/users/subscribe/:id', function(req, res) {
+  if(req.session.logged_in) {
+
+    Fact.findAll({
+      where: {$and: [{user_id: req.session.user_id}, {id: req.params.id}]}
+        }).then(function(facts) {
+              if (facts.length > 0){
+                  Cat.destroy({
+                      where: { id : req.params.id }
+                  }).then(function (result) {
+                      res.redirect('/facts');
+                  }, function(rejectedPromiseError){
+                      console.log(rejectedPromiseError);
+                  });
+              }else{
+                  res.send("sorry you can't delete that cat.");
+              }
+          });
+      }else {
+          res.send("sorry you can't do that. You need to be logged in");
+      }
+  });
+
 
 module.exports = router;
