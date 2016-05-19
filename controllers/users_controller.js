@@ -2,6 +2,23 @@ var express = require('express');
 var router = express.Router();
 var bcrypt = require('bcryptjs');
 var User = require('../models/User.js');
+var session = require('express-session');
+var Fact = require('../models/Fact.js');
+
+
+//render home page 
+router.get('/', function(req,res) {
+    res.redirect('/home')
+});
+
+router.get('/home', function(req,res) {
+
+    Fact.findAll({}).then(function(result){
+        var hbsObject = {fact : result}
+            res.render('index', hbsObject);
+    })
+});
+
 
 //render new user form
 router.get('/users/new', function(req,res) {
@@ -32,7 +49,7 @@ router.post('/users/login', function(req, res) {
           req.session.user_email = user.email;
           req.session.username = user.username;
 
-          res.redirect('/users/sign-in');
+          res.redirect('/facts');
         }
     });
   })
@@ -53,7 +70,7 @@ router.post('/users/create', function(req,res) {
         req.session.user_id = user.id;
         req.session.user_email = user.email;
         req.session.username = user.username;
-        res.redirect('/')
+        res.redirect('/facts')
       });
     });
   });
