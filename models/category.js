@@ -2,7 +2,7 @@ var Sequelize = require("sequelize");
 
 var sequelizeConnection = require("../config/connection.js");
 
-var Category = sequelizeConnection.define("category", {
+var Category = sequelizeConnection.define("categories", {
     id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,

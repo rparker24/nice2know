@@ -27,13 +27,16 @@ CREATE TABLE categories(
 	PRIMARY KEY(id)
 );
 
+
 CREATE TABLE subscriptions(
+	id int NOT NULL,
 	user_id int NOT NULL,
-	category_id it NOT NULL,
+	category_id int NOT NULL,
 	
 );
 
 CREATE TABLE user_facts(
+	id int NOT NULL,
 	user_id int NOT NULL,
 	fact_id int NOT NULL
 );
