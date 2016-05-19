@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Category = require('../models/category.js');
+var User = require('../model/User.js');
 
 router.get('/', function(req,res) {
     res.redirect('/categories')

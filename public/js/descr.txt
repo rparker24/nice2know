@@ -27,6 +27,11 @@ on ufs.fact_id = facts.id
 where subs.user_id = req.session.user_id AND ufs.user_id = req.session.user_id AND facts.id != ufs.fact_id
 
 
+User.hasMany(Post, {foreignKey: 'user_id'})
+Post.belongsTo(User, {foreignKey: 'user_id'})
+
+Post.find({ where: { ...}, include: [User]})
+
 Sid: AC2df9772f973eacf5465a59358300483b
 token: f28181f9134cfca37b7e8ae47364b5b2
 (201) 365-9611

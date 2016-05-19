@@ -32,5 +32,6 @@ var User = sequelizeConnection.define("users", {
   underscored: true
 });
 
+
 User.sync();
 module.exports = User;
