@@ -9,6 +9,6 @@ config.twilioNumber = process.env.TWILIO_NUMBER;
 
 module.exports = config;
 
-
+//How to store variables locally below
 // export TWILIO_ACCOUNT_SID=vjkwyv74fufwv9c8h49h
 
