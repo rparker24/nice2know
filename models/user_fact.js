@@ -15,7 +15,18 @@ module.exports = function (sequelize, DataTypes) {
     {
         underscored: true,
         freezeTableName: true,
-        tableName: 'user_facts' 
+        tableName: 'user_facts',
+
+        classMethods: {
+            associate: function(models) {
+              Fact.belongsTo(models.Category, {
+                // onDelete: "CASCADE",
+                foreignKey: {
+                  allowNull: false
+                }
+              });
+            }
+        } 
     });
     return UserFact;
 };

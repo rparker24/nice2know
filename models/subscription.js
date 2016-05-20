@@ -15,7 +15,18 @@ module.exports = function (sequelize, DataTypes) {
     {
         underscored: true,
         freezeTableName: true,
-        tableName: 'subscriptions'  
+        tableName: 'subscriptions', 
+
+        classMethods: {
+            associate: function(models) {
+              Category.belongsTo(models.Category, {
+                // onDelete: "CASCADE",
+                foreignKey: {
+                  allowNull: false
+                }
+              });
+            }
+        } 
     });
     return Subscription;
 };

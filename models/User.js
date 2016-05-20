@@ -26,7 +26,18 @@ module.exports = function(sequelize, DataTypes) {
   {
     underscored: true,
     freezeTableName: true,
-    tableName: 'users'
+    tableName: 'users',
+
+    classMethods: {
+        associate: function(models) {
+          User.hasMany(models.Subscriptions, {
+            // onDelete: "CASCADE",
+            foreignKey: {
+              allowNull: false
+            }
+          });
+        }
+    }
   });
   return User;
 };
