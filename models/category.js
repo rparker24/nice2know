@@ -1,21 +1,33 @@
-var Sequelize = require("sequelize");
-
-var sequelizeConnection = require("../config/connection.js");
-
-var Category = sequelizeConnection.define("categories", {
-    id: {
-        type: Sequelize.INTEGER,
-        autoIncrement: true,
-        primaryKey: true
+"use strict";
+module.exports = function (sequelize, DataTypes) {
+    var Category = sequelizeConnection.define("Category", {
+        id: {
+            type: DataTypes.INTEGER,
+            autoIncrement: true,
+            primaryKey: true
+        },
+        category_name: {
+            type: DataTypes.STRING,
+        },
+        description: {
+            type: DataTypes.STRING,
+        },
     },
-    category_name: {
-        type: Sequelize.STRING,
-    },
-    description: {
-        type: Sequelize.STRING,
-    }
-});
+    {
+        underscored: true,
+        freezeTableName: true,
+        tableName: 'categories' 
 
-Category.sync();
-console.log(Category)
-module.exports = Category;
+        classMethods: {
+            associate: function(models) {
+              .belongsTo(models.User, {
+                // onDelete: "CASCADE",
+                foreignKey: {
+                  allowNull: false
+                }
+              });
+            }
+        }
+    });
+    return Category;
+};

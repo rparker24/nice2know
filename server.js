@@ -36,5 +36,5 @@ app.use('/', routes);
 // have heroku select the port otherwise use port 3000 locally
 var port = process.env.PORT || 3000;
 app.listen(port);
-scheduler.start();
+// scheduler.start();
 

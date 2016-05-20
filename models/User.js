@@ -1,37 +1,34 @@
-var Sequelize = require("sequelize");
+"use strict";
 
-var sequelizeConnection = require("../config/connection.js");
+module.exports = function(sequelize, DataTypes) {
+  var User = sequelize.define("User", {
+    id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true
+    },
+    username: {
+      type: DataTypes.STRING,
+    },
+    email: {
+      type: DataTypes.STRING,
+    },
+    password_hash: {
+      type: DataTypes.STRING,
+    },
+    phone: {
+      type: DataTypes.STRING,
+    },
+    countrycode: {
+      type: DataTypes.INTEGER,
+    },
+  },
+  {
+    underscored: true,
+    freezeTableName: true,
+    tableName: 'users'
+  });
+  return User;
+};
 
-var User = sequelizeConnection.define("users", {
-  id: {
-    type: Sequelize.INTEGER,
-    autoIncrement: true,
-    primaryKey: true
-  },
-  username: {
-    type: Sequelize.STRING,
-  },
-  email: {
-    type: Sequelize.STRING,
-  },
-  password_hash: {
-    type: Sequelize.STRING,
-  },
-  phone: {
-    type: Sequelize.STRING,
-  },
-  countrycode: {
-    type: Sequelize.INTEGER,
-  },
-  subscribed: {
-    type: Sequelize.BOOLEAN,
-    default: false
-  },
-},
-{
-  underscored: true
-});
 
-
-User.sync();
-module.exports = User;

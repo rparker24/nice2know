@@ -1,21 +1,21 @@
-var Sequelize = require("sequelize");
-
-var sequelizeConnection = require("../config/connection.js");
-
-var UserFact = sequelizeConnection.define("user_facts", {
-    id: {
-        type: Sequelize.INTEGER,
-        autoIncrement: true,
-        primaryKey: true
+module.exports = function (sequelize, DataTypes) {
+    var UserFact = sequelizeConnection.define("UserFact", {
+        id: {
+            type: DataTypes.INTEGER,
+            autoIncrement: true,
+            primaryKey: true
+        },
+        user_id: {
+            type: DataTypes.INTEGER,
+        },
+        fact_id: {
+            type: DataTypes.INTEGER,
+        },
     },
-    user_id: {
-        type: Sequelize.INTEGER,
-    },
-    fact_id: {
-        type: Sequelize.INTEGER,
-    }
-});
-
-UserFact.sync();
-console.log(UserFact)
-module.exports = UserFact;
+    {
+        underscored: true,
+        freezeTableName: true,
+        tableName: 'user_facts' 
+    });
+    return UserFact;
+};

@@ -1,21 +1,21 @@
-var Sequelize = require("sequelize");
-
-var sequelizeConnection = require("../config/connection.js");
-
-var Subscription = sequelizeConnection.define("subscriptions", {
-    id: {
-        type: Sequelize.INTEGER,
-        autoIncrement: true,
-        primaryKey: true
+module.exports = function (sequelize, DataTypes) {
+    var Subscription = sequelizeConnection.define("Subscription", {
+        id: {
+            type: DataTypes.INTEGER,
+            autoIncrement: true,
+            primaryKey: true
+        },
+        user_id: {
+            type: DataTypes.INTEGER,
+        },
+        category_id: {
+            type: DataTypes.INTEGER,
+        },
     },
-    user_id: {
-        type: Sequelize.INTEGER,
-    },
-    category_id: {
-        type: Sequelize.INTEGER,
-    }
-});
-
-Subscription.sync();
-console.log(Subscription)
-module.exports = Subscription;
+    {
+        underscored: true,
+        freezeTableName: true,
+        tableName: 'subscriptions'  
+    });
+    return Subscription;
+};

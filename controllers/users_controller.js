@@ -4,6 +4,8 @@ var bcrypt = require('bcryptjs');
 var User = require('../models/User.js');
 var session = require('express-session');
 var Fact = require('../models/Fact.js');
+// var config = require('./config');
+// var client = require('../js/sms_message.js');
 
 
 //render home page 
@@ -92,43 +94,50 @@ router.post('/users/login', function(req, res) {
           req.session.user_id = user.id;
           req.session.user_email = user.email;
           req.session.username = user.username;
-
-          res.redirect('/facts');
+          req.session.phone = user.phone;
+          req.sesson.countrycode = user.countrycode;
+          res.redirect('/home');
         }
     });
   })
 });
 
-//subscribe to a category and fact
-router.post('/users/subscribe/:id', function(req, res) {
-  if(req.session.logged_in) {
+//Select text and send message 
+router.post('/:user_id/facts/:fact_id', function(req, res) {
+  var targetNumber,
+      messageBody;
+    if(req.session.logged_in) {
 
-    sequelize.query('SELECT * FROM facts LEFT JOIN categories AS cats ON cats.id = facts.category_id LEFT JOIN subscriptions AS subs ON subs.category_id = cats.id WHERE subs.user_id = '+req.session.user_id, {model: Fact}).then(function(facts) {
-router.post('/users/create', function(req,res) {
-  bcrypt.genSalt(10, function(err, salt) {
-    bcrypt.hash(req.body.password, salt, function(err, hash) {
-      User.create({
-        username: req.body.username,
-        email: req.body.email,
-        password_hash: hash,
-        phone: req.body.phone,
-        countrycode: req.body.countrycode
-      }).then(function(user){
+      sequelize.query("SELECT * FROM facts WHERE id=2", {model: Fact}).then(
+        function(facts) {
+          console.log(facts[0]);
+        })
+      // sequelize.query('SELECT * FROM facts LEFT JOIN categories AS cats ON cats.id = facts.category_id LEFT JOIN subscriptions AS subs ON subs.category_id = cats.id WHERE subs.user_id = '+req.session.user_id, {model: Fact}).then(function(facts) {
+          //code
+          // console.log(facts);
+          // client.sendMessage({
 
-        req.session.logged_in = true;
-        req.session.user_id = user.id;
-        req.session.user_email = user.email;
-        req.session.username = user.username;
-        res.redirect('/facts')
-      });
-    });
+          //     to: "+" + user.countrycode + user.phone, 
+          //     from: config.twilioNumber, 
+          //     body: facts.fact 
 
-    sequelize.query('SELECT * FROM facts LEFT JOIN categories AS cats ON cats.id = facts.category_id LEFT JOIN subscriptions AS subs ON subs.category_id = cats.id LEFT JOIN user_facts AS ufs ON ufs.fact_id = facts.id WHERE subs.user_id = ' +req.session.user_id+ 'AND ufs.user_id =' +req.session.user_id+ 'AND facts.id != ufs.fact_id').then(function(facts) {
+          // }, function(err, responseData) { //this function is executed when a response is received from Twilio
+
+          //     if (!err) { 
+          //         console.log(responseData.from); 
+          //         console.log(responseData.body); 
+          //     }
+          // });
+        // });
+      
 
 
-    });
-      // sequelize.query('INSERT INTO subscriptions (user_id, category_id), [?, ?]', [req.session.user_id, req.params.id (this needs to be the category id number) ]);
-  }
+      // sequelize.query('SELECT * FROM facts LEFT JOIN categories AS cats ON cats.id = facts.category_id LEFT JOIN subscriptions AS subs ON subs.category_id = cats.id LEFT JOIN user_facts AS ufs ON ufs.fact_id = facts.id WHERE subs.user_id = ' +req.session.user_id+ 'AND ufs.user_id =' +req.session.user_id+ 'AND facts.id != ufs.fact_id').then(function(facts) {
+      //     //code
+
+      // });
+        
+    }
 });
 
 // router.post('/users/sendMessage', function() {

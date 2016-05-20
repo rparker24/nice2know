@@ -9,15 +9,16 @@ CREATE TABLE users(
 	password_hash varchar(255) NOT NULL,
 	phone varchar(255) NOT NULL,
 	countrycode int NOT NULL,
-	subscribed BOOLEAN,
 	PRIMARY KEY(id)
 );
 
 CREATE TABLE facts(
 	id int NOT NULL AUTO_INCREMENT,
 	fact varchar(255) NOT NULL,
-	category_id varchar(255) NOT NULL,
-	PRIMARY KEY(id)
+	topic varchar(255) NOT NULL,
+	category_id int NOT NULL,
+	PRIMARY KEY(id),
+	-- FOREIGN KEY (category_id) REFERENCES categories(id)
 );
 
 CREATE TABLE categories(
@@ -27,16 +28,18 @@ CREATE TABLE categories(
 	PRIMARY KEY(id)
 );
 
-
 CREATE TABLE subscriptions(
 	id int NOT NULL,
 	user_id int NOT NULL,
 	category_id int NOT NULL,
-	
+	PRIMARY KEY(id),
+	FOREIGN KEY (category_id) REFERENCES categories(id)
 );
 
 CREATE TABLE user_facts(
 	id int NOT NULL,
 	user_id int NOT NULL,
-	fact_id int NOT NULL
+	fact_id int NOT NULL,
+	PRIMARY KEY(id),
+	-- FOREIGN KEY (fact_id) REFERENCES facts(id)
 );

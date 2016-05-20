@@ -7,6 +7,8 @@ config.authToken = process.env.TWILIO_AUTH_TOKEN;
 config.authyKey = process.env.AUTHY_API_KEY; 
 config.twilioNumber = process.env.TWILIO_NUMBER;  
 
+
+
 module.exports = config;
 
 //How to store variables locally below
