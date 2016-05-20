@@ -9,13 +9,13 @@ var UserFact = sequelizeConnection.define("user_facts", {
         primaryKey: true
     },
     user_id: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.INTEGER
     },
     fact_id: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.INTEGER
     }
 });
 
 UserFact.sync();
-console.log(UserFact)
+console.log(UserFact);
 module.exports = UserFact;

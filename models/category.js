@@ -9,13 +9,13 @@ var Category = sequelizeConnection.define("categories", {
         primaryKey: true
     },
     category_name: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING
     },
     description: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING
     }
 });
 
 Category.sync();
-console.log(Category)
+console.log(Category);
 module.exports = Category;

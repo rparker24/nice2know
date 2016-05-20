@@ -9,13 +9,13 @@ var Subscription = sequelizeConnection.define("subscriptions", {
         primaryKey: true
     },
     user_id: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.INTEGER
     },
     category_id: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.INTEGER
     }
 });
 
 Subscription.sync();
-console.log(Subscription)
+console.log(Subscription);
 module.exports = Subscription;
