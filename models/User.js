@@ -9,29 +9,25 @@ var User = sequelizeConnection.define("users", {
     primaryKey: true
   },
   username: {
-    type: Sequelize.STRING,
+    type: Sequelize.STRING
   },
   email: {
-    type: Sequelize.STRING,
+    type: Sequelize.STRING
   },
   password_hash: {
-    type: Sequelize.STRING,
+    type: Sequelize.STRING
   },
   phone: {
-    type: Sequelize.STRING,
+    type: Sequelize.STRING
   },
   countrycode: {
-    type: Sequelize.INTEGER,
-  },
-  subscribed: {
-    type: Sequelize.BOOLEAN,
-    default: false
-  },
+    type: Sequelize.INTEGER
+  }
 },
 {
   underscored: true
 });
 
-
 User.sync();
+console.log(User);
 module.exports = User;

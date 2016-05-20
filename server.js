@@ -5,7 +5,7 @@ var methodOverride = require('method-override');
 var session = require('express-session');
 var request = require('request');
 var cron = require('node-cron');
-var scheduler = require('./scheduler');
+var scheduler = require('./scheduler.js');
 var path = require('path');
 var app = express();
 
@@ -36,5 +36,4 @@ app.use('/', routes);
 // have heroku select the port otherwise use port 3000 locally
 var port = process.env.PORT || 3000;
 app.listen(port);
-scheduler.start();
-
+// scheduler.start();
