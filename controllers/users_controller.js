@@ -71,7 +71,7 @@ router.post('/users/create', function(req,res) {
             req.session.user_id = user.id;
             req.session.user_email = user.email;
             req.session.username = user.username;
-            res.redirect('/');
+            res.redirect('/home');
           });
         });
       });
