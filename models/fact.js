@@ -1,6 +1,6 @@
 "use strict";
 module.exports = function (sequelize, DataTypes) {
-    var Fact = sequelizeConnection.define("Fact", {
+    var Fact = sequelize.define("Fact", {
         id: {
             type: DataTypes.INTEGER,
             autoIncrement: true,

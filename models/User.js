@@ -2,13 +2,13 @@
 
 module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define("User", {
-    username: {
-      type: DataTypes.STRING,
-    },
     id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
       primaryKey: true
+    },
+    username: {
+      type: DataTypes.STRING,
     },
     email: {
       type: DataTypes.STRING,
@@ -31,7 +31,7 @@ module.exports = function(sequelize, DataTypes) {
 
     classMethods: {
         associate: function(models) {
-          User.hasMany(models.Subscriptions, {
+          User.hasMany(models.Subscription, {
             // onDelete: "CASCADE",
             foreignKey: {
               allowNull: false

@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-    var UserFact = sequelizeConnection.define("UserFact", {
+    var UserFact = sequelize.define("UserFact", {
         id: {
             type: DataTypes.INTEGER,
             autoIncrement: true,

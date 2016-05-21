@@ -1,6 +1,6 @@
 "use strict";
 module.exports = function (sequelize, DataTypes) {
-    var Category = sequelizeConnection.define("Category", {
+    var Category = sequelize.define("Category", {
         id: {
             type: DataTypes.INTEGER,
             autoIncrement: true,

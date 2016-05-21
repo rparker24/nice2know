@@ -1,27 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var bcrypt = require('bcryptjs');
-var User = require('../models/User.js');
+var models = require('../models');
 var session = require('express-session');
 var Fact = require('../models/Fact.js');
-// var config = require('./config');
-// var client = require('../js/sms_message.js');
-
-
-//render home page 
-router.get('/', function(req,res) {
-    res.redirect('/home')
-});
-
-router.get('/home', function(req,res) {
-
-    Fact.findAll({}).then(function(result){
-        var hbsObject = {fact : result}
-            res.render('index', hbsObject);
-    })
-});
-
-
 
 //render new user form
 router.get('/users/new', function(req,res) {
@@ -43,12 +25,11 @@ router.get('/', function(req,res) {
 });
 
 router.get('/home', function(req,res) {
-
-    Fact.findAll({}).then(function(result){
-        var hbsObject = {fact : result}
-            res.render('index', hbsObject);
-    })
+  res.render('index');
 });
+
+
+  
 
 router.post('/users/create', function(req,res) {
   models.User.findAll({

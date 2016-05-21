@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-    var Subscription = sequelizeConnection.define("Subscription", {
+    var Subscription = sequelize.define("Subscription", {
         id: {
             type: DataTypes.INTEGER,
             autoIncrement: true,
@@ -20,7 +20,7 @@ module.exports = function (sequelize, DataTypes) {
 
         classMethods: {
             associate: function(models) {
-              Category.hasOne(models.Subscription, {
+              Subscription.hasMany(models.User, {
                 // onDelete: "CASCADE",
                 foreignKey: {
                   allowNull: false
