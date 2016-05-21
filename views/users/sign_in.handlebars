@@ -1,17 +1,25 @@
-
-<br>
+<div id='signIn'>
 <br>
 <br>
 <br>
 
 <!--login/sign_in page for user who already has an account!> -->
-	<form action="Signinto Nice2Know">
-	<form action="/users/login" method="post">
-     <label>Username:<br /><input type="text" name="username" placeholder="Enter username" size="25" maxlength="50" /></label>
-    			<label>Password:<br /><input type="text" name="password" placeholder="Enter password" size="25" maxlength="50"/></label><br />
-    			<input type="submit" value="Login" /> <br />
-    			<label><input type="checkbox" name="subscribe" checked="checked" /> Sign me up for email updates</label><br />
-  </form>
 
-  <br>
-  <br>
+	<form class="create-update-form" action="/users/login" method="post">
+  
+	  <div class="form-group">
+	    <label for="em">Email:</label>
+	    <input type="text" id="em" name="email">
+	  </div>
+
+	  <div class="form-group">
+	    <label for="pass">Password:</label>
+	    <input type="password" id="pass" name="password">
+	  </div>
+
+
+  <button type="submit">Sign In</button>
+<br>
+<br>
+<br>
+  </div>
