@@ -1,33 +1,43 @@
+
+<div id='registration'>
 <br>
 <br>
 <br>
-<br>
-
-<!-- //begin register page for users who do not have accounts on the server -->
-
-  <h1>Welcome to Nice2Know</h1>
-  <h2>All Facts on your favorite topic at your fingertips</h2>
-  <p>Please take a look at all topics of interest</p>
-
-  <form class='create-update-form' action="/user/create"method="post"><br />
-
+  <form class='create-update-form' action="/user/create" method="post">
 			<h3>To subscribe to categories & get text messages about your favorite topic, enter your mobile phone number:</h3>
-			<label>Name:<br /><input type="text" name="name" /></label><br />
-			<label>Email:<br /><input type="text" name="email" /></label><br />
-			<label>Countrycode:<br /><input type="text" name="countrycode" /></label><br />
-			<label>Mobile:<br /><input type="text" name="mobile" /></label><br />
-			<label>Favorite Fact Topic:<br /></label>
-			<select name="devices">
-				<option value="sports">Sports</option>
-				<option value="history">History</option>
-				<option value="technology">Technology</option>
-				<option value="science">Science</option>
-				<option value="funandleisure">Fun and Leisure</option>
-				<option value="society">Society</option>
-			</select><br>
-			<input type="submit" name="subscribe" value="Subscribe" />
-  </form>
+			
 
-	</form>
+      <div class="form-group">
+        <label for="uname">Username: </label>
+        <input type="text" id="uname" name="username" placeholder="Jimmy Lado">
+      </div>
+        
+        <div class="form-group">
+    <label for="pass">Password: </label>
+    <input type="password" id="pass" name="password">
+        </div>
+			
 
-	<form action="subscribe to text messages">
+     
+      <div class="form-group">
+        <label for="em">Email: </label>
+        <input type="email" id="e-mail" name="email" placeholder="jlado@ssr.gov">
+      </div>
+
+
+        <div class="form-group">
+        <label for="country">Country Code: </label>
+        <input type="text" id="country-code" name="countrycode">
+      </div>
+
+       
+      <div class="form-group">
+        <label for="phone">Mobile Phone: </label>
+        <input type="text" id="mobile-phone" name="phone" placeholder="651-324-5488">
+      </div>
+      
+      <button type="submit">Sign Up!</button>  </form>
+<br>
+<br>
+<br>
+</div>
