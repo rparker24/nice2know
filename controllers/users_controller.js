@@ -51,7 +51,7 @@ router.get('/home', function(req,res) {
 });
 
 router.post('/users/create', function(req,res) {
-  User.findAll({
+  models.User.findAll({
     where: {$or: [{email: req.body.email}, {username: req.body.username}]}
   }).then(function(users) {
     if(users.length > 0) {
@@ -83,7 +83,7 @@ router.post('/users/create', function(req,res) {
 
 //if user trys to sign in with the wrong password or email tell them that on the page
 router.post('/users/login', function(req, res) {
-  User.findOne({
+  models.User.findOne({
     where: {email: req.body.email}
   }).then(function(user) {
     bcrypt.compare(req.body.password, user.password_hash, function(err, result) {
@@ -103,42 +103,42 @@ router.post('/users/login', function(req, res) {
 });
 
 //Select text and send message 
-router.post('/:user_id/facts/:fact_id', function(req, res) {
-  var targetNumber,
-      messageBody;
-    if(req.session.logged_in) {
+// router.post('/:user_id/facts/:fact_id', function(req, res) {
+//   var targetNumber,
+//       messageBody;
+//     if(req.session.logged_in) {
 
-      sequelize.query("SELECT * FROM facts WHERE id=2", {model: Fact}).then(
-        function(facts) {
-          console.log(facts[0]);
-        })
-      // sequelize.query('SELECT * FROM facts LEFT JOIN categories AS cats ON cats.id = facts.category_id LEFT JOIN subscriptions AS subs ON subs.category_id = cats.id WHERE subs.user_id = '+req.session.user_id, {model: Fact}).then(function(facts) {
-          //code
-          // console.log(facts);
-          // client.sendMessage({
+//       sequelize.query("SELECT * FROM facts WHERE id=2", {model: Fact}).then(
+//         function(facts) {
+//           console.log(facts[0]);
+//         })
+//       // sequelize.query('SELECT * FROM facts LEFT JOIN categories AS cats ON cats.id = facts.category_id LEFT JOIN subscriptions AS subs ON subs.category_id = cats.id WHERE subs.user_id = '+req.session.user_id, {model: Fact}).then(function(facts) {
+//           //code
+//           // console.log(facts);
+//           // client.sendMessage({
 
-          //     to: "+" + user.countrycode + user.phone, 
-          //     from: config.twilioNumber, 
-          //     body: facts.fact 
+//           //     to: "+" + user.countrycode + user.phone, 
+//           //     from: config.twilioNumber, 
+//           //     body: facts.fact 
 
-          // }, function(err, responseData) { //this function is executed when a response is received from Twilio
+//           // }, function(err, responseData) { //this function is executed when a response is received from Twilio
 
-          //     if (!err) { 
-          //         console.log(responseData.from); 
-          //         console.log(responseData.body); 
-          //     }
-          // });
-        // });
+//           //     if (!err) { 
+//           //         console.log(responseData.from); 
+//           //         console.log(responseData.body); 
+//           //     }
+//           // });
+//         // });
       
 
 
-      // sequelize.query('SELECT * FROM facts LEFT JOIN categories AS cats ON cats.id = facts.category_id LEFT JOIN subscriptions AS subs ON subs.category_id = cats.id LEFT JOIN user_facts AS ufs ON ufs.fact_id = facts.id WHERE subs.user_id = ' +req.session.user_id+ 'AND ufs.user_id =' +req.session.user_id+ 'AND facts.id != ufs.fact_id').then(function(facts) {
-      //     //code
+//       // sequelize.query('SELECT * FROM facts LEFT JOIN categories AS cats ON cats.id = facts.category_id LEFT JOIN subscriptions AS subs ON subs.category_id = cats.id LEFT JOIN user_facts AS ufs ON ufs.fact_id = facts.id WHERE subs.user_id = ' +req.session.user_id+ 'AND ufs.user_id =' +req.session.user_id+ 'AND facts.id != ufs.fact_id').then(function(facts) {
+//       //     //code
 
-      // });
+//       // });
         
-    }
-});
+//     }
+// });
 
 // router.post('/users/sendMessage', function() {
 //   var targetNumber,

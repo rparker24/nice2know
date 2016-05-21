@@ -16,11 +16,12 @@ module.exports = function (sequelize, DataTypes) {
     {
         underscored: true,
         freezeTableName: true,
-        tableName: 'categories', 
+        tableName: 'categories',
+        timestamps: false, 
 
         classMethods: {
             associate: function(models) {
-              .belongsTo(models.User, {
+              Category.hasMany(models.Fact, {
                 // onDelete: "CASCADE",
                 foreignKey: {
                   allowNull: false

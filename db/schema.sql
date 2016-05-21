@@ -18,7 +18,6 @@ CREATE TABLE facts(
 	topic varchar(255) NOT NULL,
 	category_id int NOT NULL,
 	PRIMARY KEY(id),
-	-- FOREIGN KEY (category_id) REFERENCES categories(id)
 );
 
 CREATE TABLE categories(
@@ -33,7 +32,6 @@ CREATE TABLE subscriptions(
 	user_id int NOT NULL,
 	category_id int NOT NULL,
 	PRIMARY KEY(id),
-	FOREIGN KEY (category_id) REFERENCES categories(id)
 );
 
 CREATE TABLE user_facts(
@@ -41,5 +39,4 @@ CREATE TABLE user_facts(
 	user_id int NOT NULL,
 	fact_id int NOT NULL,
 	PRIMARY KEY(id),
-	-- FOREIGN KEY (fact_id) REFERENCES facts(id)
 );

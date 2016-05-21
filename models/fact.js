@@ -20,6 +20,7 @@ module.exports = function (sequelize, DataTypes) {
         underscored: true,
         freezeTableName: true,
         tableName: 'facts',
+        timestamps: false,
         
         classMethods: {
             associate: function(models) {

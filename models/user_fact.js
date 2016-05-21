@@ -16,15 +16,23 @@ module.exports = function (sequelize, DataTypes) {
         underscored: true,
         freezeTableName: true,
         tableName: 'user_facts',
+        timestamps: false,
 
         classMethods: {
             associate: function(models) {
-              Fact.belongsTo(models.Category, {
+              UserFact.belongsTo(models.User, {
                 // onDelete: "CASCADE",
                 foreignKey: {
                   allowNull: false
                 }
               });
+              //more relations....
+              // UserFact.belongsTo(models.User, {
+              //   // onDelete: "CASCADE",
+              //   foreignKey: {
+              //     allowNull: false
+              //   }
+              // });
             }
         } 
     });

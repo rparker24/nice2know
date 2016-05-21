@@ -1,11 +1,11 @@
-var config = require('./config');
+var passwords = require('../js/passwords');
 var client = require('twilio')(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
  
 
 client.sendMessage({
 
     to: to, //'+' + countrycode + phone
-    from: config.twilioNumber, 
+    from: passwords.twilioNumber, 
     body: 'Nice 2 Know Test Text Message.' 
 
 }, function(err, responseData) { //this function is executed when a response is received from Twilio

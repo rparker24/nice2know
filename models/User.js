@@ -2,13 +2,13 @@
 
 module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define("User", {
+    username: {
+      type: DataTypes.STRING,
+    },
     id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
       primaryKey: true
-    },
-    username: {
-      type: DataTypes.STRING,
     },
     email: {
       type: DataTypes.STRING,
@@ -25,6 +25,7 @@ module.exports = function(sequelize, DataTypes) {
   },
   {
     underscored: true,
+    timestamps: false,
     freezeTableName: true,
     tableName: 'users',
 
