@@ -1,4 +1,6 @@
 "use strict";
+var models = require('./models');
+
 module.exports = function (sequelize, DataTypes) {
     var Category = sequelize.define("Category", {
         id: {
@@ -21,11 +23,9 @@ module.exports = function (sequelize, DataTypes) {
 
         classMethods: {
             associate: function(models) {
-              Category.hasMany(models.Fact, {
+              Category.hasMany(models.Subscription, {
                 // onDelete: "CASCADE",
-                foreignKey: {
-                  allowNull: false
-                }
+                foreignKey: 'category_id'
               });
             }
         }
