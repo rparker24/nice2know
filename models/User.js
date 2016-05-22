@@ -31,7 +31,7 @@ module.exports = function(sequelize, DataTypes) {
 
     classMethods: {
         associate: function(models) {
-          User.hasMany(models.Subscription, {
+          User.hasMany(models.Category, {
             // onDelete: "CASCADE",
             foreignKey: {
               allowNull: false

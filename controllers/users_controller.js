@@ -4,6 +4,10 @@ var bcrypt = require('bcryptjs');
 var models = require('../models');
 var session = require('express-session');
 var Fact = require('../models/Fact.js');
+var texter = require('./sms_message');
+var passwords = require('./passwords');
+
+
 
 //render new user form
 router.get('/users/new', function(req,res) {

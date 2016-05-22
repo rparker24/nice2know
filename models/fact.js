@@ -1,4 +1,5 @@
 "use strict";
+
 module.exports = function (sequelize, DataTypes) {
     var Fact = sequelize.define("Fact", {
         id: {
@@ -12,9 +13,9 @@ module.exports = function (sequelize, DataTypes) {
         topic: {
             type: DataTypes.STRING,
         },
-        category_id: {
-            type: DataTypes.INTEGER,
-        },
+        // category_id: {
+        //     type: DataTypes.INTEGER,
+        // },
     },
     {
         underscored: true,
