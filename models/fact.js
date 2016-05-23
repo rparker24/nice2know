@@ -1,5 +1,8 @@
 "use strict";
 
+var Category = require('../models/category.js');
+var User = require('../models/User.js');
+
 module.exports = function (sequelize, DataTypes) {
     var Fact = sequelize.define("Fact", {
         id: {
@@ -25,12 +28,12 @@ module.exports = function (sequelize, DataTypes) {
         
         classMethods: {
             associate: function(models) {
-              Fact.belongsTo(models.Category, {
-                // onDelete: "CASCADE",
-                foreignKey: {
-                  allowNull: false
-                }
-              });
+                Fact.hasOne(models.Category, {
+                   // through: {
+                   //     model: models.Category
+                   // },
+                   foreignKey: 'fact_id',
+                });
             }
         }
     });

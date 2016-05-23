@@ -1,5 +1,8 @@
 "use strict";
 
+var Fact = require('../models/Fact.js');
+var Category = require('../models/category.js');
+
 module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define("User", {
     id: {
@@ -31,11 +34,8 @@ module.exports = function(sequelize, DataTypes) {
 
     classMethods: {
         associate: function(models) {
-          User.hasMany(models.Category, {
-            // onDelete: "CASCADE",
-            foreignKey: {
-              allowNull: false
-            }
+          User.hasMany(models.Fact, {
+             foreignKey: 'user_id'
           });
         }
     }

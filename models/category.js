@@ -1,5 +1,7 @@
 "use strict";
-// var models = require('../models');
+
+var Fact = require('../models/Fact.js');
+var User = require('../models/User.js');
 
 module.exports = function (sequelize, DataTypes) {
     var Category = sequelize.define("Category", {
@@ -14,10 +16,6 @@ module.exports = function (sequelize, DataTypes) {
         description: {
             type: DataTypes.STRING,
         },
-        // subscriptions: {
-        //     type: DataTypes.BOOLEAN,
-        //     defautValue: false,
-        // },
     },
     {
         underscored: true,
@@ -27,16 +25,12 @@ module.exports = function (sequelize, DataTypes) {
 
         classMethods: {
             associate: function(models) {
-              Category.belongsTo(models.User, {
-                // onDelete: "CASCADE",
-                foreignKey: {
-                    allowNull: false
-                },
-              });
+              // Category.belongsTo(models.User, {
+              //   // onDelete: "CASCADE",
+              //   foreignKey: "user_id"
+              // });
               Category.hasMany(models.Fact, {
-                foreignKey: {
-                    allowNull: false
-                },
+                foreignKey: "category_id"
               });
             }
         }

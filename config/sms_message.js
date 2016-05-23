@@ -1,9 +1,9 @@
 var passwords = require('./passwords');
 var client = require('twilio')(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
- 
+var texter;
 
 //this function is executed when a response is received from Twilio
-client.sendMessage(configObj, function(err, responseData) { 
+client.sendMessage(texter, function(err, responseData) { 
     if (!err) { 
         console.log(responseData.from); 
         console.log(responseData.body); 
