@@ -23,8 +23,8 @@ router.get('/users/sign-in', function(req,res) {
 //render user to home page when signing out
 router.get('/users/sign-out', function(req,res) {
   req.session.destroy(function(err) {
-     res.redirect('/')
-  })
+     res.redirect('/home');
+  });
 });
 
 // router.get('/', function(req,res) {
@@ -41,6 +41,8 @@ router.post('/users/create', function(req,res) {
   models.User.findAll({
     where: {$or: [{email: req.body.email}, {username: req.body.username}]}
   }).then(function(users) {
+    res.redirect('/home');
+
     if(users.length > 0) {
       res.send("We already have an account with this username");
     } else {
@@ -50,7 +52,7 @@ router.post('/users/create', function(req,res) {
         bcrypt.hash(req.body.password, salt, function(err, hash) {
 
           //i love sequelize :!
-          User.create({
+          models.User.create({
             username: req.body.username,
             email: req.body.email,
             password_hash: hash,
@@ -75,6 +77,8 @@ router.post('/users/login', function(req, res) {
   models.User.findOne({
     where: {email: req.body.email}
   }).then(function(user) {
+    res.redirect('/home');
+
     bcrypt.compare(req.body.password, user.password_hash, function(err, result) {
         if (result == true){
           
@@ -84,8 +88,8 @@ router.post('/users/login', function(req, res) {
           req.session.user_email = user.email;
           req.session.username = user.username;
           req.session.phone = user.phone;
-          req.sesson.countrycode = user.countrycode;
-          res.redirect('/home');
+          req.session.countrycode = user.countrycode;
+          // res.redirect('/home');
         }
     });
   });
@@ -104,14 +108,16 @@ router.post('/categories/fact/:id', function(req, res) {
 
           to: "+" + req.session.countrycode + req.session.phone, 
           from: passwords.twilioNumber, 
-          body: //result[randomNum] 
+          body: "hi"               //result[randomNum] 
 
-      });
-    });
+      })
+    })
+  }else {
+    console.log("hello world");
   }
-});
+  
+})
 
-      
 
 
 
