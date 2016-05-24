@@ -1,21 +1,43 @@
-var Sequelize = require("sequelize");
+"use strict";
 
-var sequelizeConnection = require("../config/connection.js");
+var Category = require('../models/category.js');
+var User = require('../models/User.js');
 
-var Fact = sequelizeConnection.define("facts", {
-    id: {
-        type: Sequelize.INTEGER,
-        autoIncrement: true,
-        primaryKey: true
+module.exports = function (sequelize, DataTypes) {
+    var Fact = sequelize.define("Fact", {
+        id: {
+            type: DataTypes.INTEGER,
+            autoIncrement: true,
+            primaryKey: true
+        },
+        fact: {
+            type: DataTypes.STRING,
+        },
+        topic: {
+            type: DataTypes.STRING,
+        },
+        // category_id: {
+        //     type: DataTypes.INTEGER,
+        // },
     },
-    fact: {
-        type: Sequelize.STRING
-    },
-    category_id: {
-        type: Sequelize.INTEGER
-    }
-});
+    {
+        underscored: true,
+        freezeTableName: true,
+        tableName: 'facts',
+        timestamps: false,
+        
+        classMethods: {
+            associate: function(models) {
+                Fact.hasOne(models.Category, {
+                   // through: {
+                   //     model: models.Category
+                   // },
+                   foreignKey: 'fact_id',
+                });
+            }
+        }
+    });
+    return Fact;
+};
 
-Fact.sync();
-console.log(Fact);
-module.exports = Fact;
+

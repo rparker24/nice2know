@@ -1,65 +1,52 @@
 var express = require('express');
 var router = express.Router();
 var bcrypt = require('bcryptjs');
-var User = require('../models/User.js');
-var session = require('express-session');
+var models = require('../models');
 var Fact = require('../models/Fact.js');
+var User = require('../models/User.js');
+var client = require('../config/sms_message'); //require twilio client object
+var passwords = require('../config/passwords'); //require twilio passwords
+var session = require('express-session');
 
-
-//render home page
-router.get('/', function(req,res) {
-    res.redirect('/home')
-});
-
-router.get('/home', function(req,res) {
-
-    Fact.findAll({}).then(function(result){
-        var hbsObject = {fact : result}
-            res.render('index', hbsObject);
-    });
-});
-
-
-
-//render new user form
+//render user sign up page/form
 router.get('/users/new', function(req,res) {
   res.render('users/new');
 });
 
+//render user sign in page/form
 router.get('/users/sign-in', function(req,res) {
   res.render('users/sign_in');
 });
 
+//render user to home page when signing out
 router.get('/users/sign-out', function(req,res) {
   req.session.destroy(function(err) {
-     res.redirect('/');
+     res.redirect('/home');
   });
 });
 
-router.get('/', function(req,res) {
-    res.redirect('/facts');
-});
-
+//render home page as index.handlebars
 router.get('/home', function(req,res) {
-
-    Fact.findAll({}).then(function(result){
-        var hbsObject = {fact : result}
-            res.render('index', hbsObject);
-    });
+  res.render('index');
 });
 
+//create new user
 router.post('/users/create', function(req,res) {
-  User.findAll({
+  models.User.findAll({
     where: {$or: [{email: req.body.email}, {username: req.body.username}]}
   }).then(function(users) {
+    res.redirect('/home');
+
     if(users.length > 0) {
       res.send("We already have an account with this username");
     } else {
 
+      //hash brownies man!
       bcrypt.genSalt(10, function(err, salt) {
         bcrypt.hash(req.body.password, salt, function(err, hash) {
 
-          User.create({
+          //i love sequelize :!
+          models.User.create({
             username: req.body.username,
             email: req.body.email,
             password_hash: hash,
@@ -81,33 +68,48 @@ router.post('/users/create', function(req,res) {
 
 //if user trys to sign in with the wrong password or email tell them that on the page
 router.post('/users/login', function(req, res) {
-  User.findOne({
+  models.User.findOne({
     where: {email: req.body.email}
   }).then(function(user) {
+    res.redirect('/home');
+
     bcrypt.compare(req.body.password, user.password_hash, function(err, result) {
         if (result == true){
-          //make session
-
+          
+          //make a session, bro
           req.session.logged_in = true;
           req.session.user_id = user.id;
           req.session.user_email = user.email;
           req.session.username = user.username;
-
-          res.redirect('/facts');
+          req.session.phone = user.phone;
+          req.session.countrycode = user.countrycode;
+          // res.redirect('/home');
         }
     });
   });
 });
 
-//subscribe to a category and fact
-router.post('/users/subscribe/:id', function(req, res) {
+//post category value of category id
+router.post('/categories/fact/:id', function(req, res) {
   if(req.session.logged_in) {
 
-    sequelize.query('SELECT * FROM facts LEFT JOIN categories AS cats ON cats.id = facts.category_id LEFT JOIN subscriptions AS subs ON subs.category_id = cats.id WHERE subs.user_id = '+req.session.user_id, {model: Fact}).then(function(facts) {
+    //some more fact finding joy!
+    models.Fact.findAll({
+      where: {$and: [{user_id: req.session.user_id}, {category_id: req.params.id}]}
+    }).then(function(facts) {
 
-    });
+      texter.sendMessage({
+
+          to: "+" + req.session.countrycode + req.session.phone, 
+          from: passwords.twilioNumber, 
+          body: "hi"               //result[randomNum] 
+
+      })
+    })
+  }else {
+    console.log("hello world");
   }
-});
+})
 
 // router.post('/users/create', function(req,res) {
 //   bcrypt.genSalt(10, function(err, salt) {

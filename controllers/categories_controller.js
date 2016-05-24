@@ -25,9 +25,12 @@ router.post('/categories/create', function(req,res) {
 
     });
 });
-
-router.put('/categories/update/:id', function(req,res) {
-    Category.update({
+//select * from facts where category_id = chosen 
+router.put('/categories/send/:id', function(req,res) {
+    Fact.findAll({
+        {
+            where: { category_id : req.body.id }
+        }
         devoured: req.body.topic
   },
   {
