@@ -104,7 +104,7 @@ router.post('/categories/fact/:id', function(req, res) {
 
           to: "+" + req.session.countrycode + req.session.phone, 
           from: passwords.twilioNumber, 
-          body: result[randomNum] 
+          body: //result[randomNum] 
 
       });
     });
