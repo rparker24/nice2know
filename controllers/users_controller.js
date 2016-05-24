@@ -115,32 +115,7 @@ router.post('/categories/fact/:id', function(req, res) {
   }else {
     console.log("hello world");
   }
-  
 })
 
-
-
-
-
-// router.post('/users/sendMessage', function() {
-//   var targetNumber,
-//       messageBody
-//   if(req.session.logged_in){
-//     User.findOne({where:{username: req.session.username}}).then(function(data){
-//       targetNumber = data.phone;
-//     }).then(function() {
-//       //i get a SQL return, i want the string from it
-//       messageBody = data.fact;
-//     }).then(function() {
-//       client.sendMessage({
-//       // to: req.session.number,
-//         to: targetNumber,
-//         from: config.twilioNumber,
-//         // body: 'Nice 2 Know Test Text Message.'
-//         body: messageBody
-//       });
-//     });
-//   }
-// })
 
 module.exports = router;
