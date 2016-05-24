@@ -40,3 +40,4 @@ module.exports = function (sequelize, DataTypes) {
     return Fact;
 };
 
+

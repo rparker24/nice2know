@@ -4,11 +4,9 @@ var bcrypt = require('bcryptjs');
 var models = require('../models');
 var Fact = require('../models/Fact.js');
 var User = require('../models/User.js');
-var texter = require('../config/sms_message'); //require twilio client object
+var client = require('../config/sms_message'); //require twilio client object
 var passwords = require('../config/passwords'); //require twilio passwords
 var session = require('express-session');
-
-
 
 //render user sign up page/form
 router.get('/users/new', function(req,res) {
@@ -26,10 +24,6 @@ router.get('/users/sign-out', function(req,res) {
      res.redirect('/home');
   });
 });
-
-// router.get('/', function(req,res) {
-//     res.redirect('/facts')
-// });
 
 //render home page as index.handlebars
 router.get('/home', function(req,res) {
@@ -67,7 +61,7 @@ router.post('/users/create', function(req,res) {
             res.redirect('/home');
           });
         });
-      });   
+      });
     }
   });
 });
@@ -117,5 +111,52 @@ router.post('/categories/fact/:id', function(req, res) {
   }
 })
 
+// router.post('/users/create', function(req,res) {
+//   bcrypt.genSalt(10, function(err, salt) {
+//     bcrypt.hash(req.body.password, salt, function(err, hash) {
+//       User.create({
+//         username: req.body.username,
+//         email: req.body.email,
+//         password_hash: hash,
+//         phone: req.body.phone,
+//         countrycode: req.body.countrycode
+//       }).then(function(user){
+//
+//         req.session.logged_in = true;
+//         req.session.user_id = user.id;
+//         req.session.user_email = user.email;
+//         req.session.username = user.username;
+//         res.redirect('/facts')
+//       });
+//     });
+//
+//     sequelize.query('SELECT * FROM facts LEFT JOIN categories AS cats ON cats.id = facts.category_id LEFT JOIN subscriptions AS subs ON subs.category_id = cats.id LEFT JOIN user_facts AS ufs ON ufs.fact_id = facts.id WHERE subs.user_id = ' +req.session.user_id+ 'AND ufs.user_id =' +req.session.user_id+ 'AND facts.id != ufs.fact_id').then(function(facts) {
+//
+//
+//     });
+//       // sequelize.query('INSERT INTO subscriptions (user_id, category_id), [?, ?]', [req.session.user_id, req.params.id (this needs to be the category id number) ]);
+//   });
+// });
+
+// router.post('/users/sendMessage', function() {
+//   var targetNumber,
+//       messageBody
+//   if(req.session.logged_in){
+//     User.findOne({where:{username: req.session.username}}).then(function(data){
+//       targetNumber = data.phone;
+//     }).then(function() {
+//       //i get a SQL return, i want the string from it
+//       messageBody = data.fact;
+//     }).then(function() {
+//       client.sendMessage({
+//       // to: req.session.number,
+//         to: targetNumber,
+//         from: config.twilioNumber,
+//         // body: 'Nice 2 Know Test Text Message.'
+//         body: messageBody
+//       });
+//     });
+//   }
+// })
 
 module.exports = router;

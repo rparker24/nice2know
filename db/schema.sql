@@ -29,12 +29,7 @@ CREATE TABLE categories
 	PRIMARY KEY(id)
 );
 
--- CREATE TABLE subscriptions
--- (
--- 	id int NOT NULL,
--- 	user_id int NOT NULL,
--- 	category_id int NOT NULL,
--- 	PRIMARY KEY(id)
--- );
+
+
 
 

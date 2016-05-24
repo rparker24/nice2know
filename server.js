@@ -6,7 +6,7 @@ var methodOverride = require('method-override');
 var session = require('express-session');
 var request = require('request');
 var cron = require('node-cron');
-var scheduler = require('./scheduler');
+var scheduler = require('./scheduler.js');
 var path = require('path');
 var app = express();
 

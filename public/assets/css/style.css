@@ -121,7 +121,7 @@ footer {
 }
 
 .navbar-header > .navbar-brand {
-    font-family: 'Questrial','Helvetica Neue',Arial,sans-serif;
+    font-family: 'Dancing Script', cursive;
     color: #9c27b0;
     padding: 15px;
     -webkit-transition: padding .2s ease-in;
@@ -263,11 +263,11 @@ header .header-content .inner p {
 
 #video-background {
   position: absolute;
-  right: 0; 
+  right: 0;
   bottom: 0;
-  min-width: 100%; 
+  min-width: 100%;
   min-height: 100%;
-  width: auto; 
+  width: auto;
   height: auto;
   z-index: 1;
 }
@@ -284,7 +284,7 @@ footer {
     .icon-lg {
         font-size: 80px;
     }
-    
+
     header {
         min-height: 100%;
     }
@@ -314,7 +314,7 @@ footer {
         max-width: 80%;
         font-size: 18px;
     }
-    
+
     section {
         min-height: 600px;
         padding: 100px 0;
@@ -386,7 +386,7 @@ textarea {
     width: 100%;
     height: 100%;
     text-align: center;
-    color: #fff;
+    color: skyblue;
     opacity: 0;
     background: rgba(44,44,44,.8);
     -webkit-transition: all .35s;
@@ -424,7 +424,7 @@ textarea {
 
 .btn-default {
     border-color: #fff;
-    color: #222;
+    color: black;
     background-color: #fff;
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
@@ -438,7 +438,7 @@ textarea {
 .btn-default.active,
 .open > .dropdown-toggle.btn-default {
     border-color: #ededed;
-    color: #222;
+    color: black;
     background-color: #f2f2f2;
     opacity: 0.7;
 }
@@ -473,7 +473,7 @@ fieldset[disabled] .btn-default.active {
 }
 
 .btn-default .badge {
-    color: #fff;
+    color: black;
     background-color: #222;
 }
 
@@ -523,7 +523,24 @@ img::-moz-selection {
     background: 0 0;
 }
 
+
+#one {
+    margin-left: 150px;
+}
 #one img{
     width:200px;
     height: 200px;
+}
+
+
+.modalBtn {
+    color: #000;
+}
+
+#registration{
+    margin-left: 150px;
+}
+
+#signIn{
+    margin-left: 150px;
 }
