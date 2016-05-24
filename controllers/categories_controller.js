@@ -5,9 +5,7 @@ var User = require('../model/User.js');
 var session = require('express-session');
 
 
-router.get('/', function(req,res) {
-    res.redirect('/categories')
-});
+
 
 router.get('/categories', function(req,res) {
 

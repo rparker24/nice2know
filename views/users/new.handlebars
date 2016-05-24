@@ -1,12 +1,9 @@
-
-<div id='registration'>
+<div id='userForm'>
 <br>
 <br>
 <br>
-  <form class='create-update-form' action="/users/create" method="post">
-			<h3>To subscribe to categories & get text messages about your favorite topic, enter your mobile phone number:</h3>
-			
-
+<p><h3>Welcome to the sign-up page! Log your info so we know where to send you awesome facts throughout the day!!</h3></p>
+  <form class='create-update-form ' action="/users/create" method="post">
       <div class="form-group">
         <label for="uname">Username: </label>
         <input type="text" id="uname" name="username" placeholder="Enter Username">
@@ -19,7 +16,7 @@
 			
 
      
-      <div class="form-group">
+      <div id='email' class="form-group">
         <label for="em">Email: </label>
         <input type="email" id="e-mail" name="email" placeholder="Enter Email">
       </div>
@@ -27,7 +24,7 @@
 
         <div class="form-group">
         <label for="countrycode">Country Code: </label>
-        <input type="countrycode" id="countrycode" name='contrycode' placeholder="Enter CountryCode, e.g.'+1' ">
+        <input type="countrycode" id="countrycode" name='countrycode' placeholder="Enter CountryCode, e.g.'+1' ">
       </div>
 
        

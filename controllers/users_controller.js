@@ -8,6 +8,12 @@ var client = require('../config/sms_message'); //require twilio client object
 var passwords = require('../config/passwords'); //require twilio passwords
 var session = require('express-session');
 
+
+
+router.get('/', function(req,res) {
+  res.redirect('/home');
+});
+
 //render user sign up page/form
 router.get('/users/new', function(req,res) {
   res.render('users/new');
@@ -30,12 +36,24 @@ router.get('/home', function(req,res) {
   res.render('index');
 });
 
+router.get('/', function(req, res) {
+  models.User.findAll({
+    include: [ models.User ]
+  }).then(function(people) {
+    res.render('index', {
+      user_id: req.session.user_id,
+      email: req.session.user_email,
+      logged_in: req.session.logged_in,
+      
+    });
+  });
+});
+
 //create new user
 router.post('/users/create', function(req,res) {
   models.User.findAll({
     where: {$or: [{email: req.body.email}, {username: req.body.username}]}
   }).then(function(users) {
-    res.redirect('/home');
 
     if(users.length > 0) {
       res.send("We already have an account with this username");
@@ -54,7 +72,7 @@ router.post('/users/create', function(req,res) {
             countrycode: req.body.countrycode
           }).then(function(user){
 
-            req.session.logged_in = true;
+             req.session.logged_in = true;
             req.session.user_id = user.id;
             req.session.user_email = user.email;
             req.session.username = user.username;
@@ -77,7 +95,7 @@ router.post('/users/login', function(req, res) {
         if (result == true){
           
           //make a session, bro
-          req.session.logged_in = true;
+         req.session.logged_in = true;
           req.session.user_id = user.id;
           req.session.user_email = user.email;
           req.session.username = user.username;
