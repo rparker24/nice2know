@@ -599,9 +599,7 @@ img::-moz-selection {
     width:100%;
 
 }
-#last hr{
-        margin-left: 310px;
-    }
+
 
 #last button{
             margin-left:-10px;
@@ -610,8 +608,6 @@ img::-moz-selection {
     }
 }
 
-section {
-    margin-right: 150px;
-}
+
 
 
