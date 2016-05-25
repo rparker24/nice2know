@@ -233,8 +233,7 @@ header {
     text-align: center;
     color: #fff;
     width: 100%;
-    background-color: #c9c9c9;
-    background-image: url('https://splashbase.s3.amazonaws.com/lifeofpix/regular/Life-of-Pix-free-stock-photos-Slate-Stone-Xeromatic-1440x953.jpg');
+    background-color: #282828;
     background-position: center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -351,7 +350,7 @@ textarea {
 
 .margin-top-0 {
     margin-top: 0;
-    margin-left: 400px;
+    margin-left: 200px;
 
 }
 
@@ -580,7 +579,39 @@ img::-moz-selection {
     
 }
 
-    hr{
-        margin-left: 440px;
+#one  hr{
+        margin-left: 230px;
     }
+#one .margin-top-0 {
+    margin-top: 0;
+    margin-left: 200px;
+
+}
+
+}
+
+#last{
+    color:#8b27b0;
+    }
+      .margin-top-0 {
+    margin-top: 0;
+    margin-left:-10px;
+    width:100%;
+
+}
+#last hr{
+        margin-left: 310px;
+    }
+
+#last button{
+            margin-left:-10px;
+
+
+    }
+}
+
+section {
+    margin-right: 150px;
+}
+
 
