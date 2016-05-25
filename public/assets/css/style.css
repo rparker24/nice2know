@@ -16,8 +16,8 @@ body {
 
 body {
     font-family: 'Questrial','Helvetica Neue',Arial,sans-serif;
-    background-color: #282828;
-    color: #d3d3d3;
+    background-color: #fefefe;
+    color: #828587;
     webkit-tap-highlight-color: #222;
 }
 
@@ -544,3 +544,52 @@ img::-moz-selection {
 #signIn{
     margin-left: 150px;
 }
+#cat-wrap {
+    width: 400px;
+    height: 220px;
+    padding-top: 6px;
+    border-width: 10px;
+    color: white;
+    background-color: #36333d;
+    /*padding-left: 20px;*/
+    margin-left: 60px;
+    margin-top: 50px;
+    /*display: table;*/
+    /*margin: 0 auto;*/
+}
+h3 {
+    font-size: 50px;
+    text-align: center;
+
+}
+h2 {
+    margin-top: 45px;
+    font-size: 90px;
+    text-align: center;
+}
+.row {
+    /*width: 100%;*/
+    display: inline-block;
+}
+.row-fact {
+    /*width: 100%;*/
+    display: inline-block;
+}
+button  {
+    width: 100%;
+    color: #36333d;
+    height: 50px;
+}
+#fact-wrap {
+    color: black;
+    width: 600px;
+    height: 300px;
+    padding: 60px;
+    border-width: 10px;
+    color: white;
+    background-color: #36333d;
+/*    padding: 20px;
+*/    text-align: center;
+/*    margin-left: 70px;
+*//*    margin-top: 50px;
+*/}

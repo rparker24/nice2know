@@ -15,7 +15,7 @@ module.exports = function (sequelize, DataTypes) {
         },
         description: {
             type: DataTypes.STRING,
-        },
+        }
     },
     {
         underscored: true,
@@ -29,8 +29,8 @@ module.exports = function (sequelize, DataTypes) {
               //   // onDelete: "CASCADE",
               //   foreignKey: "user_id"
               // });
-              Category.hasMany(models.Fact, {
-                foreignKey: "category_id"
+              Category.belongsToMany(models.User, {
+                through: "user_categories"
               });
             }
         }
