@@ -351,7 +351,7 @@ textarea {
 
 .margin-top-0 {
     margin-top: 0;
-    margin-left: 400px;
+    margin-left: 200px;
 
 }
 
@@ -581,6 +581,32 @@ img::-moz-selection {
 }
 
     hr{
-        margin-left: 440px;
+        margin-left: 230px;
     }
+    .margin-top-0 {
+    margin-top: 0;
+    margin-left: 200px;
+
+}
+
+}
+
+#last{
+    color:#8b27b0;
+    }
+      .margin-top-0 {
+    margin-top: 0;
+    margin-left:-10px;
+    width:100%;
+
+}
+    hr{
+        margin-left: 310px;
+    }
+    button{
+            margin-left:-10px;
+
+
+    }
+}
 
