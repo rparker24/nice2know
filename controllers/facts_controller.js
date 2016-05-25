@@ -4,6 +4,7 @@
  var models = require('../models');
  var Fact = require('../models/Fact.js');
  var User = require('../models/User.js');
+ var sequelize = require('../models/index.js');
  var Category = require('../models/Category.js');
  var texter = require('../config/sms_message'); //require twilio client object
  var passwords = require('../config/passwords'); //require twilio passwords
@@ -11,12 +12,7 @@
 
 
 
-//  router.get('/home', function(req,res) {
-//   models.Fact.findAll({}).then(function(result){
-//       var hbsFactsObject = {facts : result}
-//       res.render('index', hbsFactsObject);
-//   });
-// });
+
 
 
 

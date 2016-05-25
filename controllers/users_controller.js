@@ -54,9 +54,7 @@ router.post('/users/create', function(req,res) {
             req.session.user_id = user.id;
             req.session.user_email = user.email;
             req.session.username = user.username;
-            req.session.countrycode = user.countrycode;
-            req.session.phone = user.phone;
-            res.redirect('/home');
+            res.redirect('/users/sign-in');
           });
         });
       });
@@ -88,28 +86,6 @@ router.post('/users/login', function(req, res) {
   });
 });
 
-//post category value of category id
-// router.post('/categories/fact/:id', function(req, res) {
-//   if(req.session.logged_in) {
-
-//     //some more fact finding joy!
-//     User
-//     models.Fact.findAll({
-//       where: {$and: [{user_id: req.session.user_id}, {category_id: req.params.id}]}
-//     }).then(function(facts) {
-//       console.log(facts);
-//       texter.sendMessage({
-
-//           to: "+" + req.session.countrycode + req.session.phone, 
-//           from: passwords.twilioNumber, 
-//           body: "hi"               //result[randomNum] 
-
-//       })
-//     })
-//   }else {
-//     console.log("hello world");
-//   }
-// })
 
 
 
