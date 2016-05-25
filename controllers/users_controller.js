@@ -176,5 +176,8 @@ router.post('/categories/fact/:id', function(req, res) {
 //     });
 //   }
 // })
+router.get('/about', function(req,res) {
+  res.render('users/about');
+});
 
 module.exports = router;
