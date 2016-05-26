@@ -25,27 +25,21 @@
      sequelize.sequelize.query('SELECT * FROM facts INNER JOIN user_categories ON facts.category_id=user_categories.category_id AND user_categories.user_id='+req.session.user_id+';').then(function(facts) {
       console.log(facts[0][0].fact);
 
-
-
       texter.sendMessage({
 
-        to: '+12018927991',
+        to: '+12018927991',  // "+" + req.session.countrycode + req.session.phone,
         from: passwords.twilioNumber, 
         body: facts[0][0].fact//result[randomNum] 
-
       });
      });
      // console.log(sequelize);
-     
-    
        res.redirect('/home');
-     
    }else {
      console.log("hello world");
    }
  })
 
- // "+" + req.session.countrycode + req.session.phone,
+
 
 
 
