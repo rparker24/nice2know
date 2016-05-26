@@ -2,22 +2,15 @@
         <div class="header-content">
             <div class="inner">
                 <h1 class="cursive">Nice2know</h1>
-                <h4>Get cool facts texted to you daily.</h4>
+                <h4 id="sub-head">GET AMAZING FACTS TEXTED TO YOU DAILY.</h4>
                 <hr>
                 {{#unless logged_in}}
                 <a href="/users/sign-in" class="btn btn-primary btn-xl">LOGIN</a> &nbsp; <a href="/users/new" class="btn btn-primary btn-xl page-scroll">REGISTER</a> <br>
                 <center><a href="#one" class="btn btn-circle page-scroll">
                 {{/unless}}
                 <br>
-
-                    {{#if logged_in}}
-                Welcome {{email}}! <br>
-                You are user {{user_id}}.<br>
-                <a href="/users/sign-out">Sign Out</a>
-            {{/if}}
-      {{#if logged_in}}
-        <a href="/users/sign-out">Sign Out</a>
-      {{/if}}
+                <h4 id="descr-head"> GET OVER 100 AMAZING FACTS! </h4>
+                    
                      <i class="fa fa-angle-double-down animated top affix-top"></i>
                      </a></center>
 
@@ -30,40 +23,53 @@
 
     </header>
     
-
-    <h2> Categories </h2>
+                  {{#if logged_in}}
+              Welcome {{email}}! <br>
+              You are user {{user_id}}.<br>
+              <a href="/users/sign-out">Sign Out</a>
+          {{/if}}
+    {{#if logged_in}}
+      <a href="/users/sign-out">Sign Out</a>
+    {{/if}}
     
-    <ul>
+    
+    <h2> Categories </h2>
+
       {{#each categories}}
-    <div class="row">
-        <div id="cat-wrap">
-            <h3> {{this.category_name}} </h3>
+        <div class="row">
+            <div id="cat-wrap">
+                <h3> {{this.category_name}} </h3>
             <form action="categories/subscribe/{{this.id}}" method="POST">
               <input type="hidden" name="subscribe" value="true">
-              <button type="submit">Subscribe to cool {{this.category_name}} facts!</button>
+              <button type="submit" id="subscribe-button">Subscribe to amazing {{this.category_name}} facts!</button>
             </form>
+            <br>
+            <br>
             <form action="facts/send-cool-fact/{{this.id}}" method="POST">
               <input type="hidden" name="sendtext" value="true">
-              <button type="submit">Text Me A {{this.category_name}} Fact Now!</button>
+              <button type="submit" id="sms-button">Text me amazing {{this.category_name}} facts!</button>
             </form>
+            </div>
         </div>
     </div>
 
       {{/each}}
-    </ul>
+    
 <br>
 <h2> Facts </h2>
-<ul>
-  {{#each facts}}
+
+
 <div class="row-fact">
+  {{#each facts}}
     <div id="fact-wrap">
-        <p id"fact-name"> {{this.fact}} </p> 
-        <p> {{this.topic}} </p>
+        <p id="topic"> Amazing {{this.topic}} facts</p>
+        <p id="fact-name"> {{this.fact}} </p> 
+
     </div>
 </div>
   {{/each }}
 
-</ul>
+
   
 
     <section id="last">
@@ -165,5 +171,7 @@
         </div>
         </div>
     </div>
+    <footer>
+    </footer>
 
 
