@@ -620,6 +620,13 @@ button  {
     font-size: 30px;
     border-radius: 12px;
 }
+#sms-button:hover {
+    background-color: white;
+    color: #84ddaf;
+    border: 2px solid #84ddaf;
+    font-size: 30px;
+    border-radius: 12px;
+}
 #subscribe-button {
     /*background-color: #84ddaf;*/
     color: #36333d;
