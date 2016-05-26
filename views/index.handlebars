@@ -42,6 +42,10 @@
               <input type="hidden" name="subscribe" value="true">
               <button type="submit">Subscribe to cool {{this.category_name}} facts!</button>
             </form>
+            <form action="facts/send-cool-fact/{{this.id}}" method="POST">
+              <input type="hidden" name="sendtext" value="true">
+              <button type="submit">Text Me A {{this.category_name}} Fact Now!</button>
+            </form>
         </div>
     </div>
 
