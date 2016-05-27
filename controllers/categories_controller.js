@@ -10,10 +10,18 @@ var texter = require('../config/sms_message'); //require twilio client object
 var passwords = require('../config/passwords'); //require twilio passwords
 var session = require('express-session');
 
+//takes root and brings it to home route
+router.get('/', function(req,res) {
+  res.redirect('/home');
+});
 
 //displays categories and facts on page 
  router.get('/home', function(req,res) {
-     var data = {};
+     var data = {     
+      user_id: req.session.user_id,
+      username: req.session.username,
+      email: req.session.user_email,
+      logged_in: req.session.logged_in,};
    models.Category.findAll({
    }).then(function(result) {
     data.categories = result;

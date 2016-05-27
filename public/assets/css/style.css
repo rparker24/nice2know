@@ -90,6 +90,7 @@ p {
 
 .modal-content {
     background-color: #1d1d1d;
+    color:floralwhite;
 }
 
 section {
@@ -114,6 +115,15 @@ aside {
 
 footer {
     padding: 15px;
+    background-image: -webkit-linear-gradient(110deg, #2d2d2d 10%, #4ec7ff 90%), url("../images/diamond_upholstery.png");
+  background-image: -moz-linear-gradient(110deg, #2d2d2d 10%, #4ec7ff 90%), url("../images/diamond_upholstery.png");
+  background-image: -o-linear-gradient(110deg, #2d2d2d 10%, #4ec7ff 90%), url("../images/diamond_upholstery.png");
+  background-image: linear-gradient(110deg, #2d2d2d 10%, #4ec7ff 90%), url("../images/diamond_upholstery.png");
+  background-image: -ms-linear-gradient(110deg, #2d2d2d 10%, #4ec7ff 90%);
+  /* IE 10+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#2d2d2d, endColorstr=#4ec7ff, GradientType=1);
+  /* IE6-9 fallback on horizontal gradient */
+  background-blend-mode: multiply;
 }
 
 .no-padding {
@@ -287,9 +297,6 @@ header .header-content .inner p {
   display:none;
 }
 
-footer {
-    background-color:#2d2d2d;
-}
 
 @media(min-width:768px) {
     .icon-lg {
@@ -563,7 +570,7 @@ img::-moz-selection {
 h3 {
     font-size: 50px;
     text-align: center;
-    color: #36333d;
+    color: floralwhite;
 
 }
 h2 {
@@ -671,3 +678,18 @@ footer {
 #registerPage{
     color:black;
 }
+
+
+
+
+#aboutModal{
+    color:floralwhite;
+
+
+}
+#developersModal{
+    color: floralwhite;
+
+}
+
+
