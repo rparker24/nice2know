@@ -33,11 +33,11 @@
     
 <section class='margin-top-0' id='category'>
     <h2> Categories </h2>
-
+ {{#if logged_in}}
       {{#each categories}}
         <div class="row">
             <div id="cat-wrap">
-                            {{#if logged_in}}
+                          
                 <h3> {{this.category_name}} </h3>
             <form action="categories/subscribe/{{this.id}}" method="POST">
               <input type="hidden" name="subscribe" value="true">
@@ -49,13 +49,14 @@
               <input type="hidden" name="sendtext" value="true">
               <button type="submit" id="sms-button">Text me amazing {{this.category_name}} facts!</button>
             </form>
-            {{/if}}
+           
             </div>
 
         </div>
     </div>
 
       {{/each}}
+       {{/if}}
              {{#unless logged_in}}
             <h3>You must be <a href='/users/sign-in'>logged in</a> to subcribe to categories!</h3>
             {{/unless}}
