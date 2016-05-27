@@ -30,8 +30,7 @@
       texter.sendMessage({
 
         to: '+12018927991',  // "+" + req.session.countrycode + req.session.phone,
-        from: passwords.twilioNumber,
-
+        from: passwords.twilioNumber, 
         body: facts[0][random].fact
       });
      });
@@ -40,7 +39,8 @@
    }else {
      console.log("hello world");
    }
- });
+ })
+
 
 
 
