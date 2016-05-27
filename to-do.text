@@ -1,0 +1,41 @@
+to do list
+
+-- no model for this
+-- same as below 
+-- no userfacts model
+-- facts that the user was sent already
+-- user would have many facts through 
+-- the user_facts table 
+-- facts would belong to many users 
+-- through user_facts table
+
+
+
+1. set up model relationships with joining tables 
+
+2. show cateogries on page let user click one to subscribe AND if they do submit to route to insert into user_categories
+
+//this will replace the cron FOR NOW
+3. have a route that displays a button that if clicked will look up all the users that have subscribed to categories
+
+one query can be return all those users that need to get sent facts 
+
+  IDEAL - inside of that query you look up facts that have NOT been sent to them 
+  OR
+  NOT IDEAL BUT EASIER - find facts from that category that the user subscribed to 
+
+    send the user a text with that fact 
+
+      insert into user_facts table what fact was sent tot hat user 
+
+      User.findAll({
+        include: [
+          {
+            model: Team, 
+            include: [
+              Folder
+            ]  
+          }
+        ]
+      });
+
