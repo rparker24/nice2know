@@ -1,3 +1,3 @@
-FACTS APP. USES TRILLO API to SEND SMS TO USERS WHO REGISTER. GIVES FACTS FROM MYSQL DATABASE CREATED TO GIVE USER FACTS AND POSITIVE FEEDBACK. 
-# Factify
-# nice2know
+#nice2know
+
+###SMS messaging app that sends facts based on category to users. 
