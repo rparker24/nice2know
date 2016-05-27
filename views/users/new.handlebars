@@ -1,43 +1,39 @@
-<section id='userRegister'>
-
 <div id='userForm'>
 <br>
 <br>
 <br>
-<p><h3>Welcome to the sign-up page! Log your info so we know where to send you awesome facts throughout the day!!</h3></p>
-  <form class='create-update-form ' action="/users/create" method="post">
-      <div class="form-group">
-        <label for="uname">Username: </label>
-        <input type="text" id="uname" name="username" placeholder="Enter Username">
-      </div>
-        
-        <div class="form-group">
-    <label for="pass">Password: </label>
-    <input type="password" id="pass" name="password" placeholder='Enter Password'>
+<div class="login-form-main-message"></div>    
+<form class='create-update-form ' action="/users/create" method="post">
+<div class="text-center" style="padding:150px" >
+<p><h3>Welcome to the sign-up page! Log your info so we know where to send you awesome facts throughout the day!! </h3></p>
+      <div class="main-login-form">
+          <div class="form-group">
+            <label for="reg_username" class="sr-only">Email address</label>
+            <input type="text" class="form-control" id="reg_username" name="reg_username" placeholder="username">
+          </div>
+          <div class="form-group">
+            <label for="reg_password" class="sr-only">Password</label>
+            <input type="password" class="form-control" id="reg_password" name="reg_password" placeholder="password">
+          </div>
+          <div class="form-group">
+            <label for="reg_password_confirm" class="sr-only">Password Confirm</label>
+            <input type="password" class="form-control" id="reg_password_confirm" name="reg_password_confirm" placeholder="confirm password">
+          </div>
+          <div class="form-group">
+            <label for="country_code" class="sr-only">Country Code</label>
+            <input type="text" class="form-control" id="country_code" name="country_code" placeholder="country code">
+          </div>
+          <div class="form-group">
+            <label for="mobile_phone" class="sr-only">Mobile Phone</label>
+            <input type="text" class="form-control" id="mobile_phone" name="mobile_phone" placeholder="mobile phone">
+          </div>
+          <div class="form-group login-group-checkbox">
+            <input type="checkbox" class="" id="reg_agree" name="reg_agree">
+            <label for="reg_agree">I agree with <a href="#">terms</a></label>
+          </div>
         </div>
-			
-
-     
-      <div id='email' class="form-group">
-        <label for="em">Email: </label>
-        <input type="email" id="e-mail" name="email" placeholder="Enter Email">
+          <button type="submit">Sign-up!</button>
       </div>
-
-
-        <div class="form-group">
-        <label for="countrycode">Country Code: </label>
-        <input type="countrycode" id="countrycode" name='countrycode' placeholder="Enter CountryCode, e.g.'+1' ">
-      </div>
-
-       
-      <div class="form-group">
-        <label for="phone">Mobile Phone: </label>
-        <input type="text" id="mobile-phone" name="phone" placeholder="enter text-friendly phone #">
-      </div>
-      
-      <button type="submit">Sign Up!</button>  </form>
-<br>
-<br>
-<br>
+    </form>
 </div>
-</section>
+</div>

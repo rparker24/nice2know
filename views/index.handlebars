@@ -1,23 +1,26 @@
-  <header id="first">
+
+    <header id="first">
         <div class="header-content">
             <div class="inner">
-                <font class="cursive">Nice<font id='twoHeader'>2</font>know</font>
-                <h4 id="sub-head">GET AMAZING FACTS TEXTED TO YOU DAILY.</h4>
+                <h1 class="cursive">Nice2Know</h1>
+                <h4>Free amazing and fun facts, straight to your mobile phone!</h4>
                 <hr>
 
-                  {{#if logged_in}}
-            <div id='welcomeUser'> <h3> Welcome {{email}}! <br>
-              You are user {{user_id}}.<br>
-              <a href="/users/sign-out">Sign Out</a></h3>
-          {{/if}}
- </div>
-                {{#unless logged_in}}
-                <a href="/users/sign-in" class="btn btn-primary btn-xl">LOGIN</a> &nbsp; <a href="/users/new" class="btn btn-primary btn-xl page-scroll">REGISTER</a> <br>
-                <center><a href="#one" class="btn btn-circle page-scroll">
-                {{/unless}}
                 <br>
-                <h4 id="descr-head"> OVER 100 AMAZING FACTS! </h4>
-                    
+              {{#if logged_in}}
+              <p>
+                Welcome {{email}}! <br>
+                You are user {{user_id}}.<br>
+                <a href="/users/sign-out">Sign Out</a>
+                </p>
+                 {{/if}}
+
+                 {{#unless logged_in}}
+              <a href="/users/sign-in" class="btn btn-primary btn-xl">LOGIN</a> &nbsp; <a href="/users/new" class="btn btn-primary btn-xl">REGISTER</a> <br>
+                <center><a href="#one" class="btn btn-circle page-scroll">
+               {{/unless}}
+            
+
                      <i class="fa fa-angle-double-down animated top affix-top"></i>
                      </a></center>
 
@@ -29,85 +32,159 @@
         </video>
 
     </header>
-
-    
-<section class='margin-top-0' id='category'>
-    <h2> Categories </h2>
- {{#if logged_in}}
-      {{#each categories}}
-        <div class="row">
-            <div id="cat-wrap">
-                          
-                <h3> {{this.category_name}} </h3>
-            <form action="categories/subscribe/{{this.id}}" method="POST">
-              <input type="hidden" name="subscribe" value="true">
-              <button type="submit" id="subscribe-button">Subscribe to amazing {{this.category_name}} facts!</button>
-            </form>
-            <br>
-            <br>
-            <form action="facts/send-cool-fact/{{this.id}}" method="POST">
-              <input type="hidden" name="sendtext" value="true">
-              <button type="submit" id="sms-button">Text me amazing {{this.category_name}} facts!</button>
-            </form>
-           
+    <br>
+   <section id="one" class="no-padding">
+      <div class="container">
+            <div class="row">
+                <div id='oneHeader' class="col-lg-8 col-lg-offset-2 ">
+                    <h2 class="margin-top-0 text-primary">Categories</h2>
+                    <hr class="primary">
+                </div>
             </div>
-
         </div>
-    </div>
-
-      {{/each}}
-       {{/if}}
-             {{#unless logged_in}}
-            <h3>You must be <a href='/users/sign-in'>logged in</a> to subcribe to categories!</h3>
-            {{/unless}}
-<br>
-<br>
-<br>    
-<br>
-<h2> Facts </h2>
-
-
-<div class="row-fact">
-  {{#each facts}}
-    <div id="fact-wrap">
-        <p id="topic"> <h2>{{this.topic}} facts</h2></p>
-        <p id="fact-name"><h3>{{this.fact}}</h3> </p> 
-
-    </div>
-</div>
-  {{/each }}
-  </section>
-
-
-  
-
+        <br>
+        <br>
+        <div class="container-fluid">
+            <div class="row no-gutter">
+                <div class="col-lg-4 media wow fadeIn">
+                    <a href="#galleryModal" class="gallery-box" data-toggle="modal" data-src="/history">
+                        <img src="assets/images/history.png" alt="Image 1">
+                        <div class="gallery-box-caption">
+                            <div class="gallery-box-content">
+                                <div>
+                                    <i class="icon-md glyphicon glyphicon-plus"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 media wow fadeIn">
+                    <a href="#galleryModal" class="gallery-box" data-toggle="modal" data-src="/sports">
+                        <img src="assets/images/sports.png" class="img-responsive" alt="Image 2">
+                        <div class="gallery-box-caption">
+                            <div class="gallery-box-content">
+                                <div>
+                                    <i class="icon-md glyphicon glyphicon-plus"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 media wow fadeIn">
+                    <a href="#galleryModal" class="gallery-box" data-toggle="modal" data-src="/tech">
+                        <img src="assets/images/technology.png" alt="Image 3">
+                        <div class="gallery-box-caption">
+                            <div class="gallery-box-content">
+                                <div>
+                                    <i class="icon-md glyphicon glyphicon-plus"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 media wow fadeInLeft">
+                    <a href="#galleryModal" class="gallery-box" data-toggle="modal" data-src="assets/images/science.png">
+                        <img src="/assets/images/science.png" class="img-responsive" alt="Image 4">
+                        <div class="gallery-box-caption">
+                            <div class="gallery-box-content">
+                                <div>
+                                    <i class="icon-md glyphicon glyphicon-plus"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 media wow fadeInLeft">
+                    <a href="#galleryModal" class="gallery-box" data-toggle="modal" data-src="assets/images/society.png">
+                        <img src="assets/images/society.png" class="img-responsive" alt="Image 5">
+                        <div class="gallery-box-caption">
+                            <div class="gallery-box-content">
+                                <div>
+                                    <i class="icon-md glyphicon glyphicon-plus"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 media wow fadeInLeft">
+                    <a href="#galleryModal" class="gallery-box" data-toggle="modal" data-src="assets/images/fun.png">
+                        <img src="assets/images/fun.png" class="img-responsive" alt="Image 6">
+                        <div class="gallery-box-caption">
+                            <div class="gallery-box-content">
+                                <div>
+                                    <i class="icon-md glyphicon glyphicon-plus"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div> 
+          <div class="col-lg-4  media wow fadeInRight">
+                    <a href="#galleryModal" class="gallery-box" data-toggle="modal" data-src="/relations.png">
+                        <img src="/assets/images/relations.png" class="img-responsive" alt="Image 4">
+                        <div class="gallery-box-caption">
+                            <div class="gallery-box-content">
+                                <div>
+                                    <i class="icon-md glyphicon glyphicon-plus"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                  <div class="col-lg-4  media wow fadeInRight">
+                    <a href="#galleryModal" class="gallery-box" data-toggle="modal" data-src="/motivation.png">
+                        <img src="/assets/images/motivation.png" class="img-responsive" alt="Image 4">
+                        <div class="gallery-box-caption">
+                            <div class="gallery-box-content">
+                                <div>
+                                    <i class="icon-md glyphicon glyphicon-plus"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                  <div class="col-lg-4  media wow fadeInRight">
+                    <a href="#galleryModal" class="gallery-box" data-toggle="modal" data-src="/fitness.png">
+                        <img src="/assets/images/fitness.png" class="img-responsive" alt="Image 4">
+                        <div class="gallery-box-caption">
+                            <div class="gallery-box-content">
+                                <div>
+                                    <i class="icon-md glyphicon glyphicon-plus"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+    </section>
+    
     <section id="last">
         <div class="container">
-             <div class="row">
-             <form action="/contact" method="POST">
+            <div class="row"><form action="/contact" method="POST">
+                </div>
                 <div class="col-lg-10 col-lg-offset-1 text-center">
                     <form class="contact-form row">
-                    <p>
-                        <h4 class="margin-top-0 wow fadeIn ">We are always looking to improve our service.  Please contact us with any comments or suggestions.  Drop us an email below.</h4>
-                    </p>
+                        <p>
+                        <h4 class="margin-top-0 wow fadeIn ">We are always looking to improve our service.</h4>  
+                        <h4>Please contact us with any comments or suggestions. </h4> 
+                        <h4>Drop us an email below.</h4>
+                        </p>
                         <div class="col-md-4">
                             <label></label>
                             <input type="text" class="form-control" placeholder="Name">
                         </div>
                         <div class="col-md-4">
                             <label></label>
-                            <input type="text" class="form-control" placeholder="Email">
+                            <input type="text" class="form-control" placeholder="nice2knowteam@gmail.com">
                         </div>
                         <div class="col-md-4">
                             <label></label>
                             <input type="text" class="form-control" placeholder="Phone">
                         </div>
-                    <div class="col-md-12">
+                        <div class="col-md-12">
                             <label></label>
-                            <textarea class="form-control" rows="9" placeholder="Your message here.."></textarea>
-                    </div>
+                            <textarea class="form-control" rows="9" placeholder="Your message here . ."></textarea>
                     <br>
-                  
                 <p>
                 <br>
                 <h4 class="margin-top-0 wow fadeIn">
@@ -121,18 +198,21 @@
                 </p>
                 <p>
                 <h4 class="margin-top-0 wow fadeIn">Would you visit again?<br />
-                <label><input type="radio" name="rating" value="yes" /> Yes</label>
+                <label><input type="radio" name="rating" value="yes" checked="checked"/> Yes</label>
                 <label><input type="radio" name="rating" value="no" /> No</label>
                 <label><input type="radio" name="rating" value="maybe" /> Maybe</label>
                 <h4 class="margin-top-0 wow fadeIn">
                 <label><input type="checkbox" name="subscribe" checked="checked" /> Sign me up for email updates</label><br />
                 </p>
-
+                <div class="col-md-12">
+                    <label>Email us anytime at:   nice2knowteam@gmail.com </label>
+                
+                <br>
                 <div class="col-md-4 col-md-offset-4">
-                    <label></label>
-                    <button type="button" data-toggle="modal" data-target="#alertModal" class="btn btn-primary btn-block btn-lg">Send <i class="ion-android-arrow-forward"></i></button>
+                    <button type="button" data-toggle="modal" data-target="#alertModal" class="btn btn-primary btn-block btn-lg">Submit form<i class="ion-android-arrow-forward"></i></button>
                 </div>
-            </form>
+                    </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -172,28 +252,22 @@
         <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-body">
-            <p class="text-center">                Welcome  {{#if logged_in}}{{username}}{{/if}}! <br> We are a team of developers who created an app tailored to giving our users (like you!) awesome facts and informative knowledge straight to your mobile device. Today, knowledge and enlightenment on various subjects is key to being ahead in this game of life! We saw this first hand and thought lets give people this information on the daily and so that they wouldn't even have to be at a computer or have to put in the additional searching to do so. By {{#unless logged_in}}<a href="/users/new">signing up</a> {{/unless}} for our site and then selecting categories of your personal interest, we easily send you texts daily of your favorite topics. 
-</p>
+            <h2 class="text-center">Landing Zero Theme</h2>
+            <h5 class="text-center">
+                A free, responsive landing page theme built by BootstrapZero.
+            </h5>
+            <p class="text-justify">
+                This is a single-page Bootstrap template with a sleek dark/grey color scheme, accent color and smooth scrolling.
+                There are vertical content sections with subtle animations that are activated when scrolled into view using the jQuery WOW plugin. There is also a gallery with modals
+                that work nicely to showcase your work portfolio. Other features include a contact form, email subscribe form, multi-column footer. Uses Questrial Google Font and Ionicons.
+            </p>
+            <p class="text-center"><a href="http://www.bootstrapzero.com">Download at BootstrapZero</a></p>
             <br/>
-            <button class="btn btn-primary btn-lg center-block" data-dismiss="modal" aria-hidden="true">OK <i class="ion-android-close"></i></button>
-          </div>
-        </div>
-        </div>
-    </div>
-    <div id="developersModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-body">
-            <h2 class="text-center">Our Team</h2>
-            <p class="text-center">We hope you enjoyed our site where we provide awesome facts straight to your mobile device through sms text message. We work extensively to provide the best user experience for you.</p>
-            <p class='text-center'>Vince Porta: Full-Stack Developer. Twilio api functionality and routing mysql database.</p>
-            <p class='text-center'>Robert Parker: Full-Stack Developer. Front-end functionality, user authentication, categories, mysql database routing and modal functionality.</p>
-            <p class='text-center'>Lisa VanOrden-Kaan: Full-Stack Developer. Front-end functionality, contact form routing, sign-in and register styles.
-            <p class='text-center'>James Lado: Full-Stack Developer. Front-end styles, mysql database, routing and modal functionality.
-            <br/>
-            <button class="btn btn-primary btn-lg center-block" data-dismiss="modal" aria-hidden="true">OK <i class="ion-android-close"></i></button>
+            <button class="btn btn-primary btn-lg center-block" data-dismiss="modal" aria-hidden="true"> OK </button>
           </div>
         </div>
         </div>
     </div>
 
+  </body>
+</html>
