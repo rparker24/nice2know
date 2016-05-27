@@ -1,16 +1,24 @@
-
-    <header id="first">
+  <header id="first">
         <div class="header-content">
             <div class="inner">
-                <h1 class="cursive">Nice2know</h1>
+                <font class="cursive">Nice<font id='twoHeader'>2</font>know</font>
                 <h4 id="sub-head">GET AMAZING FACTS TEXTED TO YOU DAILY.</h4>
                 <hr>
+
+                  {{#if logged_in}}
+              Welcome {{email}}! <br>
+              You are user {{user_id}}.<br>
+              <a href="/users/sign-out">Sign Out</a>
+          {{/if}}
+    {{#if logged_in}}
+      <a href="/users/sign-out">Sign Out</a>
+    {{/if}}
                 {{#unless logged_in}}
                 <a href="/users/sign-in" class="btn btn-primary btn-xl">LOGIN</a> &nbsp; <a href="/users/new" class="btn btn-primary btn-xl page-scroll">REGISTER</a> <br>
                 <center><a href="#one" class="btn btn-circle page-scroll">
                 {{/unless}}
                 <br>
-                <h4 id="descr-head"> GET OVER 100 AMAZING FACTS! </h4>
+                <h4 id="descr-head"> OVER 100 AMAZING FACTS! </h4>
                     
                      <i class="fa fa-angle-double-down animated top affix-top"></i>
                      </a></center>
@@ -23,17 +31,9 @@
         </video>
 
     </header>
+
     
-                  {{#if logged_in}}
-              Welcome {{email}}! <br>
-              You are user {{user_id}}.<br>
-              <a href="/users/sign-out">Sign Out</a>
-          {{/if}}
-    {{#if logged_in}}
-      <a href="/users/sign-out">Sign Out</a>
-    {{/if}}
-    
-    
+<section class='margin-top-0' id='category'>
     <h2> Categories </h2>
 
       {{#each categories}}
@@ -69,6 +69,7 @@
     </div>
 </div>
   {{/each }}
+  </section>
 
 
   
@@ -172,6 +173,5 @@
         </div>
         </div>
     </div>
-    <footer>
-    </footer>
+
 
