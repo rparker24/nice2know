@@ -28,16 +28,11 @@ module.exports = function (sequelize, DataTypes) {
         
         classMethods: {
             associate: function(models) {
-                Fact.hasOne(models.Category, {
-                   // through: {
-                   //     model: models.Category
-                   // },
-                   foreignKey: 'fact_id',
+                Fact.belongsToMany(models.User, {
+                   through: 'user_facts' 
                 });
             }
         }
     });
     return Fact;
 };
-
-

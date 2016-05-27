@@ -7,17 +7,17 @@ CREATE TABLE users
 	username varchar(255) NOT NULL,
 	email varchar(255) NOT NULL,
 	password_hash varchar(255) NULL,
-	phone varchar(255) NOT NULL,
-	countrycode int NOT NULL,
+	phone int NOT NULL,
+	countrycode int NULL,
 	PRIMARY KEY(id)
 );
-
 
 CREATE TABLE facts
 (
 	id int NOT NULL AUTO_INCREMENT,
 	fact varchar(255) NOT NULL,
 	topic varchar(255) NOT NULL,
+	category_id int NOT NULL,
 	PRIMARY KEY(id)
 );
 
@@ -29,7 +29,17 @@ CREATE TABLE categories
 	PRIMARY KEY(id)
 );
 
+CREATE TABLE user_categories
+(
+	user_id int NOT NULL,
+	category_id int NOT NULL
+);
 
+CREATE TABLE user_facts
+(
+	user_id int NOT NULL,
+	fact_id int NOT NULL
+);
 
 
 

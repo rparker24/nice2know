@@ -1,8 +1,6 @@
 /*
-
 Landing Zero theme - A free landing page theme from BootstrapZero
 http://www.bootstrapzero.com
-
 */
 
 @import url(https://fonts.googleapis.com/css?family=Questrial);
@@ -12,12 +10,13 @@ html,
 body {
     width: 100%;
     height: 100%;
+    background-color: #ebf2ef;
 }
 
 body {
     font-family: 'Questrial','Helvetica Neue',Arial,sans-serif;
-    background-color: #282828;
-    color: #d3d3d3;
+    background-color: #fefefe;
+    color: #828587;
     webkit-tap-highlight-color: #222;
 }
 
@@ -30,11 +29,11 @@ hr {
 }
 
 hr.light {
-    border-color: floralwhite;
+    border-color: #fff;
 }
 
 a {
-    color: skyblue;
+    color: #9c27b0;
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
@@ -42,7 +41,7 @@ a {
 
 a:hover,
 a:focus {
-    color: darkblue;
+    color: #9c27c1;
     outline: 0;
 }
 
@@ -77,7 +76,6 @@ p {
 .cursive {
     font-family: 'Dancing Script', cursive;
     text-transform: none;
-    color: skyblue;
 }
 
 .text-faded {
@@ -89,7 +87,7 @@ p {
 }
 
 .text-primary {
-    color: skyblue;
+    color: #9c27b0;
 }
 
 .modal-content {
@@ -123,7 +121,7 @@ footer {
 
 .navbar-header > .navbar-brand {
     font-family: 'Dancing Script', cursive;
-    color: skyblue;
+    color: #9c27b0;
     padding: 15px;
     -webkit-transition: padding .2s ease-in;
     -moz-transition: padding .2s ease-in;
@@ -233,7 +231,8 @@ header {
     text-align: center;
     color: #fff;
     width: 100%;
-    background-color: #282828;
+    background-color: #c9c9c9;
+    background-image: url('https://splashbase.s3.amazonaws.com/lifeofpix/regular/Life-of-Pix-free-stock-photos-Slate-Stone-Xeromatic-1440x953.jpg');
     background-position: center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -258,7 +257,7 @@ header .header-content .inner p {
     margin-bottom: 50px;
     font-size: 16px;
     font-weight: 300;
-    color: skyblue;
+    color: rgba(255,255,255,0.7);
 }
 
 #video-background {
@@ -350,8 +349,6 @@ textarea {
 
 .margin-top-0 {
     margin-top: 0;
-    margin-left: 200px;
-
 }
 
 .feature {
@@ -539,97 +536,134 @@ img::-moz-selection {
     color: #000;
 }
 
-
-#userForm{
-    margin-left: 75px;
-        font-family: 'Questrial','Helvetica Neue',Arial,sans-serif;
-        width:100%;
-        height: 100%;
-        color:skyblue;
-        
-
-}
-#userForm input{
-    color:black !important;
-}
-button{
-   background-color: transparent;
-    border:1px solid #f0f0f0;
-    border-color:#f0f0f0;
-    -webkit-transition: all .35s;
-    -moz-transition: all .35s;
-    transition: all .35s;
- }
-#email{
-        margin-left: 20px;
-    }
-
-    #registerH3{
-        color: skyblue;
-        margin-left: 360px
-
-    }
-    h3{
-                color: skyblue;
-
-    }
-    form{
-      margin-left: 400px;
-    }
-
+#registration{
+    margin-left: 150px;
 }
 
-#one{
-    color: skyblue !important;
-    
+#signIn{
+    margin-left: 150px;
 }
-
-#one  hr{
-        margin-left: 210px;
-    }
-#one .margin-top-0 {
-    margin-top: 0;
-    margin-left: 180px;
-
+#cat-wrap {
+    /*width: 200px;*/
+    /*height: 220px;*/
+    /*padding-left: 6px;*/
+    border-width: 10px;
+    color: white;
+    background-color: #abe3ff;
+    /*padding-left: 20px;*/
+    margin-left: 60px;
+    margin-right: 60px;
+    /*margin-top: 0px;*/
+    /*display: table;*/
+    /*margin: 0 auto;*/
 }
-
-}
-
-#last{
-    color:#8b27b0;
-    }
-      .margin-top-0 {
-    margin-top: 0;
-    margin-left:-10px;
-    width:100%;
-
-}
-
-
-#last button{
-            margin-left:-10px;
-
-
-    }
-}
-
-#galleryModal {
+h3 {
+    font-size: 50px;
     text-align: center;
+    color: #36333d;
 
 }
+h2 {
+    margin-top: 125px;
+    font-size: 90px;
+    text-align: center;
+    color: #36333d;
+    font-weight: 900;
 
-#galleryModal .modalBtn{
-    width:100%;
-       background-color: transparent;
-    border:1px solid #f0f0f0;
-    border-color:#f0f0f0;
-    -webkit-transition: all .35s;
-    -moz-transition: all .35s;
-    transition: all .35s;
-    color:skyblue;
+}
+.row {
+    width: 100%;
+    display: inline-block;
+    /*margin-left: 80px;
+    margin-right: 80px;*/
+    margin-top: 30px;
+    border-radius: 12px;
+    background-color: white;
+
+}
+.row-fact {
+    /*width: 100%;*/
+    display: inline-block;
+}
+button  {
+    width: 100%;
+    color: #36333d;
+    height: 50px;
+    background-color: white;
+}
+#fact-wrap {
+    /*color: black;*/
+    /*width: 700px;*/
+    /*height: 250px;*/
+    /*padding: 20px;*/
+    border-width: 10px;
+    color: white;
+ /*   background-image: url(http://orig12.deviantart.net/8a44/f/2015/237/9/6/iphone_sms_text_bubble_by_angelnight1705-d9736wd.png);*/
+    background-size: 700px 300px;
+    background-repeat: no-repeat;
+    background-color: #abe3ff;
+    padding: 20px;
+    text-align: center;
+    margin-left: 70px;
+    margin-right: 70px;
+    margin-top: 30px;
+    border-radius: 12px;
 }
 
 
-
-
-
+#sms-button {
+    background-color: #84ddaf;
+    color: #36333d;
+    border: 2px solid #84ddaf;
+    font-size: 30px;
+    border-radius: 12px;
+}
+#sms-button:hover {
+    background-color: white;
+    color: #84ddaf;
+    border: 2px solid #84ddaf;
+    font-size: 30px;
+    border-radius: 12px;
+}
+#subscribe-button {
+    /*background-color: #84ddaf;*/
+    color: #36333d;
+    font-size: 30px;
+    border-radius: 12px;
+    border: 2px solid #84ddaf;
+}
+h1 {
+    font-size: 52px;
+    background-color: #abe3ff;
+    width: 250px;
+    text-align: center;
+    margin-left: 370px;
+    margin-bottom: 20px;
+}
+#sub-head {
+    font-size: 65px;
+    font-weight: 900;
+}
+#descr-head {
+    color: #abe3ff;
+    font-size: 30px;
+    font-weight: 400;
+    margin-top: 20px;
+}
+footer {
+    width: 100%;
+    background-color: #abe3ff;
+    height: 180px;
+}
+#topic {
+    font-size: 44px;
+    font-weight: 400;
+    color: #36333d;
+    /*text-align: center;*/
+}
+#fact-name {
+    /*margin-top: 100px;*/
+    line-height: 1;
+    font-size: 30px;
+    color: #36333d;
+}

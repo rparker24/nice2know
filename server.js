@@ -29,13 +29,13 @@ app.engine('handlebars', exphbs({
 app.set('view engine', 'handlebars');
 
 var users_controllers = require('./controllers/users_controller.js');
-var routes = require('./controllers/users_controller.js');
+var categories_controllers = require('./controllers/categories_controller.js');
+var facts_controllers = require('./controllers/facts_controller.js');
 
 app.use('/', users_controllers);
-app.use('/', routes);
-
+app.use('/', categories_controllers);
+app.use('/', facts_controllers);
 // have heroku select the port otherwise use port 3000 locally
 var port = process.env.PORT || 3000;
 app.listen(port);
 // scheduler.start();
-

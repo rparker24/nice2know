@@ -34,14 +34,14 @@ module.exports = function(sequelize, DataTypes) {
 
     classMethods: {
         associate: function(models) {
-          User.hasMany(models.Fact, {
-             foreignKey: 'user_id'
+          User.belongsToMany(models.Fact, {
+            through: 'user_facts'
+          });
+          User.belongsToMany(models.Category, {
+            through: "user_categories"
           });
         }
     }
   });
   return User;
 };
-
-
-
