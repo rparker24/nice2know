@@ -6,13 +6,11 @@
                 <hr>
 
                   {{#if logged_in}}
-              Welcome {{email}}! <br>
+            <div id='welcomeUser'> <h3> Welcome {{email}}! <br>
               You are user {{user_id}}.<br>
-              <a href="/users/sign-out">Sign Out</a>
+              <a href="/users/sign-out">Sign Out</a></h3>
           {{/if}}
-    {{#if logged_in}}
-      <a href="/users/sign-out">Sign Out</a>
-    {{/if}}
+ </div>
                 {{#unless logged_in}}
                 <a href="/users/sign-in" class="btn btn-primary btn-xl">LOGIN</a> &nbsp; <a href="/users/new" class="btn btn-primary btn-xl page-scroll">REGISTER</a> <br>
                 <center><a href="#one" class="btn btn-circle page-scroll">
@@ -39,6 +37,7 @@
       {{#each categories}}
         <div class="row">
             <div id="cat-wrap">
+                            {{#if logged_in}}
                 <h3> {{this.category_name}} </h3>
             <form action="categories/subscribe/{{this.id}}" method="POST">
               <input type="hidden" name="subscribe" value="true">
@@ -50,12 +49,19 @@
               <input type="hidden" name="sendtext" value="true">
               <button type="submit" id="sms-button">Text me amazing {{this.category_name}} facts!</button>
             </form>
+            {{/if}}
             </div>
+
         </div>
     </div>
 
       {{/each}}
-    
+             {{#unless logged_in}}
+            <h3>You must be <a href='/users/sign-in'>logged in</a> to subcribe to categories!</h3>
+            {{/unless}}
+<br>
+<br>
+<br>    
 <br>
 <h2> Facts </h2>
 
@@ -63,8 +69,8 @@
 <div class="row-fact">
   {{#each facts}}
     <div id="fact-wrap">
-        <p id="topic"> Amazing {{this.topic}} facts</p>
-        <p id="fact-name"> {{this.fact}} </p> 
+        <p id="topic"> <h2>{{this.topic}} facts</h2></p>
+        <p id="fact-name"><h3>{{this.fact}}</h3> </p> 
 
     </div>
 </div>
@@ -165,34 +171,28 @@
         <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-body">
-            <h2 class="text-center">Landing Zero Theme</h2>
-            <h5 class="text-center">
-                A free, responsive landing page theme built by BootstrapZero.
-            </h5>
-            <p class="text-justify">
-                This is a single-page Bootstrap template with a sleek dark/grey color scheme, accent color and smooth scrolling.
-                There are vertical content sections with subtle animations that are activated when scrolled into view using the jQuery WOW plugin. There is also a gallery with modals
-                that work nicely to showcase your work portfolio. Other features include a contact form, email subscribe form, multi-column footer. Uses Questrial Google Font and Ionicons.
-            </p>
-            <p class="text-center"><a href="http://www.bootstrapzero.com">Download at BootstrapZero</a></p>
-            <br/>
-            <button class="btn btn-primary btn-lg center-block" data-dismiss="modal" aria-hidden="true"> OK </button>
-          </div>
-        </div>
-        </div>
-    </div>
-    <div id="alertModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-sm">
-        <div class="modal-content">
-          <div class="modal-body">
-            <h2 class="text-center">Nice Job!</h2>
-            <p class="text-center">You clicked the button, but it doesn't actually go anywhere because this is only a demo.</p>
-            <p class="text-center"><a href="http://www.bootstrapzero.com">Learn more at BootstrapZero</a></p>
+            <p class="text-center">                Welcome  {{#if logged_in}}{{username}}{{/if}}! <br> We are a team of developers who created an app tailored to giving our users (like you!) awesome facts and informative knowledge straight to your mobile device. Today, knowledge and enlightenment on various subjects is key to being ahead in this game of life! We saw this first hand and thought lets give people this information on the daily and so that they wouldn't even have to be at a computer or have to put in the additional searching to do so. By {{#unless logged_in}}<a href="/users/new">signing up</a> {{/unless}} for our site and then selecting categories of your personal interest, we easily send you texts daily of your favorite topics. 
+</p>
             <br/>
             <button class="btn btn-primary btn-lg center-block" data-dismiss="modal" aria-hidden="true">OK <i class="ion-android-close"></i></button>
           </div>
         </div>
         </div>
     </div>
-
+    <div id="developersModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <h2 class="text-center">Our Team</h2>
+            <p class="text-center">We hope you enjoyed our site where we provide awesome facts straight to your mobile device through sms text message. We work extensively to provide the best user experience for you.</p>
+            <p class='text-center'>Vince Porta: Full-Stack Developer. Twilio api functionality and routing mysql database.</p>
+            <p class='text-center'>Robert Parker: Full-Stack Developer. Categories, mysql database routing and modal functionality.</p>
+            <p class='text-center'>Lisa VanOrden-Kaan: Full-Stack Developer. Front-end functionality, contact form routing, sign-in and register styles.
+            <p class='text-center'>James Lado: Full-Stack Developer. Front-end styles, mysql database, routing and modal functionality.
+            <br/>
+            <button class="btn btn-primary btn-lg center-block" data-dismiss="modal" aria-hidden="true">OK <i class="ion-android-close"></i></button>
+          </div>
+        </div>
+        </div>
+    </div>
 
