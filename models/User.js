@@ -1,6 +1,6 @@
 "use strict";
 
-var Fact = require('../models/fact.js');
+var Fact = require('../models/Fact.js');
 var Category = require('../models/category.js');
 
 module.exports = function(sequelize, DataTypes) {
