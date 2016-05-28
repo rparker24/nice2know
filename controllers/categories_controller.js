@@ -2,9 +2,9 @@ var express = require('express');
 var router = express.Router();
 var bcrypt = require('bcryptjs');
 var models = require('../models');
-var Fact = require('../models/Fact.js');
+var Fact = require('../models/fact.js');
 var User = require('../models/User.js');
-var Category = require('../models/Category.js');
+var Category = require('../models/category.js');
 var sequelize = require('../models/index.js');
 var texter = require('../config/sms_message'); //require twilio client object
 var passwords = require('../config/passwords'); //require twilio passwords
@@ -15,9 +15,9 @@ router.get('/', function(req,res) {
   res.redirect('/home');
 });
 
-//displays categories and facts on page 
+//displays categories and facts on page
  router.get('/home', function(req,res) {
-     var data = {     
+     var data = {
       user_id: req.session.user_id,
       username: req.session.username,
       email: req.session.user_email,
@@ -44,7 +44,7 @@ router.post('/categories/subscribe/:id', function(req, res) {
     sequelize.sequelize.query('INSERT INTO user_categories (user_id, category_id) VALUES ('+ req.session.user_id + ',' + req.params.id + ');')
    .then(function(categories) {
       console.log(categories);
-   
+
       res.redirect('/home');
     })
   }else {

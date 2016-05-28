@@ -2,10 +2,10 @@
  var router = express.Router();
  var bcrypt = require('bcryptjs');
  var models = require('../models');
- var Fact = require('../models/Fact.js');
+ var Fact = require('../models/fact.js');
  var User = require('../models/User.js');
  var sequelize = require('../models/index.js');
- var Category = require('../models/Category.js');
+ var Category = require('../models/category.js');
  var texter = require('../config/sms_message'); //require twilio client object
  var passwords = require('../config/passwords'); //require twilio passwords
  var session = require('express-session');
@@ -14,7 +14,7 @@
 
  //select * from facts where category_id = user_categories.category_id AND user_categories.user_id = req.session.user_id
 
- 
+
 
 
  router.post('/facts/send-cool-fact/:id', function(req, res) {
@@ -30,7 +30,7 @@
       texter.sendMessage({
 
         to: '+12018927991',  // "+" + req.session.countrycode + req.session.phone,
-        from: passwords.twilioNumber, 
+        from: passwords.twilioNumber,
         body: facts[0][random].fact
       });
      });

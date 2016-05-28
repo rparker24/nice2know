@@ -1,8 +1,8 @@
 var express = require('express');
 var models = require('../models');
-var Fact = require('../models/Fact.js');
+var Fact = require('../models/fact.js');
 var User = require('../models/User.js');
-var Category = require('../models/Category.js');
+var Category = require('../models/category.js');
 var texter = require('../config/sms_message'); //
 var passwords = require('../config/passwords'); //
 var session = require('express-session');
