@@ -13,6 +13,7 @@ var app = express();
 // Database setup
 var Sequelize = require('sequelize'),
 		connection;
+		console.log(process.env.JAWSDB_URL);
 if (process.env.JAWSDB_URL) {
 	connection = new Sequelize(process.env.JAWSDB_URL);
 } else {
