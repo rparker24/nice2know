@@ -10,6 +10,19 @@ var scheduler = require('./scheduler.js');
 var path = require('path');
 var app = express();
 
+// Database setup
+var Sequelize = require('sequelize'),
+		connection;
+if (process.env.JAWSDB_URL) {
+	connection = new Sequelize(process.env.JAWSDB_URL);
+} else {
+	connection = new Sequelize('facts_db', 'root', '', {
+		host: 'localhost',
+		dialect: 'mysql',
+		port: '3306'
+	})
+}
+
 //Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static(process.cwd() + '/public'));
 app.use(express.static(__dirname + '/public'));
