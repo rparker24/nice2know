@@ -1,6 +1,6 @@
 "use strict";
 
-var Fact = require('../models/Fact.js');
+var Fact = require('../models/fact.js');
 var User = require('../models/User.js');
 
 module.exports = function (sequelize, DataTypes) {
@@ -21,7 +21,7 @@ module.exports = function (sequelize, DataTypes) {
         underscored: true,
         freezeTableName: true,
         tableName: 'categories',
-        timestamps: false, 
+        timestamps: false,
 
         classMethods: {
             associate: function(models) {
@@ -37,4 +37,3 @@ module.exports = function (sequelize, DataTypes) {
     });
     return Category;
 };
-
