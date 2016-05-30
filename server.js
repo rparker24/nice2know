@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var session = require('express-session');
 var request = require('request');
-var scheduler = require('./scheduler.js');
+// var scheduler = require('./scheduler.js');
 var path = require('path');
 var app = express();
 

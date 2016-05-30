@@ -1,10 +1,10 @@
 var express = require('express');
 var router = express.Router();
-// var models = require('../models');
-// var Fact = require('../models/fact.js');
-// var User = require('../models/user.js');
+var models = require('../models');
+var Fact = require('../models/fact.js');
+var User = require('../models/user.js');
 var sequelize = require('../models/index.js');
-// var Category = require('../models/category.js');
+var Category = require('../models/category.js');
 var texter = require('../config/sms_message');
 var passwords = require('../config/passwords');
 

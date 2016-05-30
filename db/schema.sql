@@ -7,7 +7,7 @@ CREATE TABLE users
 	username varchar(255) NOT NULL,
 	email varchar(255) NOT NULL,
 	password_hash varchar(255) NOT NULL,
-	phone int NOT NULL,
+	phone bigint NOT NULL,
 	countrycode int NOT NULL,
 	PRIMARY KEY(id)
 );
