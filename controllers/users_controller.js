@@ -1,7 +1,7 @@
 var express = require('express');
 var models = require('../models');
 var Fact = require('../models/fact.js');
-var User = require('../models/User.js');
+var User = require('../models/user.js');
 var Category = require('../models/category.js');
 var texter = require('../config/sms_message'); //
 var passwords = require('../config/passwords'); //
@@ -22,7 +22,7 @@ router.get('/users/sign-in', function(req,res) {
 //render user to home page when signing out
 router.get('/users/sign-out', function(req,res) {
   req.session.destroy(function(err) {
-     res.redirect('/home');
+    res.redirect('/home');
   });
 });
 
@@ -31,24 +31,21 @@ router.post('/users/create', function(req,res) {
   models.User.findAll({
     where: {$or: [{email: req.body.email}, {username: req.body.username}]}
   }).then(function(users) {
-    // res.redirect('/home');
 
     if(users.length > 0) {
       res.send("We already have an account with this username");
     } else {
 
-      //hash brownies man!
       bcrypt.genSalt(10, function(err, salt) {
         bcrypt.hash(req.body.password, salt, function(err, hash) {
 
-          //i love sequelize :!
           models.User.create({
             username: req.body.username,
             email: req.body.email,
             password_hash: hash,
             phone: req.body.phone,
             countrycode: req.body.countrycode
-          }).then(function(user){
+          }).then(function(user) {
 
             req.session.logged_in = true;
             req.session.user_id = user.id;
@@ -69,24 +66,20 @@ router.post('/users/login', function(req, res) {
   }).then(function(user) {
 
     bcrypt.compare(req.body.password, user.password_hash, function(err, result) {
-        if (result == true){
-          console.log("1" + result);
+      if (result == true) {
+        console.log("1" + result);
 
-          //make a session, bro
-          req.session.logged_in = true;
-          req.session.user_id = user.id;
-          req.session.user_email = user.email;
-          req.session.username = user.username;
-          req.session.phone = user.phone;
-          req.session.countrycode = user.countrycode;
-          res.redirect('/home');
-        }
-          console.log(result);
+        req.session.logged_in = true;
+        req.session.user_id = user.id;
+        req.session.user_email = user.email;
+        req.session.username = user.username;
+        req.session.phone = user.phone;
+        req.session.countrycode = user.countrycode;
+        res.redirect('/home');
+      }
+        console.log(result);
     });
   });
 });
-
-
-
 
 module.exports = router;

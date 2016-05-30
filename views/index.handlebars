@@ -1,199 +1,192 @@
-  <header id="first">
-        <div class="header-content">
-            <div class="inner">
-                <font class="cursive">Nice<font id='twoHeader'>2</font>know</font>
-                <h4 id="sub-head">GET AMAZING FACTS TEXTED TO YOU DAILY.</h4>
-                <hr>
+<header id="first">
+  <div class="header-content">
+    <div class="inner">
+      <font class="cursive">Nice<font id='twoHeader'>2</font>know</font>
+      <h4 id="sub-head">GET AMAZING FACTS TEXTED TO YOU DAILY.</h4>
+      <hr>
 
-                  {{#if logged_in}}
-            <div id='welcomeUser'> <h3> Welcome {{email}}! <br>
-              You are user {{user_id}}.<br>
-              <a href="/users/sign-out">Sign Out</a></h3>
-          {{/if}}
- </div>
-                {{#unless logged_in}}
-                <a href="/users/sign-in" class="btn btn-primary btn-xl">LOGIN</a> &nbsp; <a href="/users/new" class="btn btn-primary btn-xl page-scroll">REGISTER</a> <br>
-                <center><a href="#one" class="btn btn-circle page-scroll">
-                {{/unless}}
-                <br>
-                <h4 id="descr-head"> OVER 100 AMAZING FACTS! </h4>
-                    
-                     <i class="fa fa-angle-double-down animated top affix-top"></i>
-                     </a></center>
-
-            </div>
+      {{#if logged_in}}
+        <div id='welcomeUser'>
+          <h3> Welcome {{email}}! <br>
+            You are user {{user_id}}.<br>
+            <a href="/users/sign-out">Sign Out</a>
+          </h3>
         </div>
+      {{/if}}
 
-        <video autoplay="" loop="" class="fillWidth fadeIn wow collapse in" data-wow-delay="0.5s" poster="https://s3-us-west-2.amazonaws.com/coverr/poster/Traffic-blurred2.jpg" id="video-background">
-            <source src="assets/video/text.mp4" type="video/mp4">Your browser does not support the video tag. I suggest you upgrade your browser.
-        </video>
+      {{#unless logged_in}}
+        <a href="/users/sign-in" class="btn btn-primary btn-xl">LOGIN</a> &nbsp; <a href="/users/new" class="btn btn-primary btn-xl page-scroll">REGISTER</a>
+        <br>
+      {{/unless}}
 
-    </header>
+      <center>
+        <br>
+        <h4 id="descr-head"> OVER 100 AMAZING FACTS! </h4>
+      </center>
 
-    
+    </div>
+  </div>
+
+  <video autoplay="" loop="" class="fillWidth fadeIn wow collapse in" data-wow-delay="0.5s" poster="https://s3-us-west-2.amazonaws.com/coverr/poster/Traffic-blurred2.jpg" id="video-background">
+      <source src="assets/video/text.mp4" type="video/mp4">Your browser does not support the video tag. I suggest you upgrade your browser.
+  </video>
+
+</header>
+
 <section class='margin-top-0' id='category'>
-    <h2> Categories </h2>
- {{#if logged_in}}
-      {{#each categories}}
-        <div class="row">
-            <div id="cat-wrap">
-                          
-                <h3> {{this.category_name}} </h3>
-            <form action="categories/subscribe/{{this.id}}" method="POST">
-              <input type="hidden" name="subscribe" value="true">
-              <button type="submit" id="subscribe-button">Subscribe to amazing {{this.category_name}} facts!</button>
-            </form>
-            <br>
-            <br>
-            <form action="facts/send-cool-fact/{{this.id}}" method="POST">
-              <input type="hidden" name="sendtext" value="true">
-              <button type="submit" id="sms-button">Text me amazing {{this.category_name}} facts!</button>
-            </form>
-           
-            </div>
+  <h2> Categories </h2>
 
+  {{#if logged_in}}
+    {{#each categories}}
+      <div class="row">
+        <div id="cat-wrap">
+          <h3> {{this.category_name}} </h3>
+          <form action="categories/subscribe/{{this.id}}" method="POST">
+            <input type="hidden" name="subscribe" value="true">
+            <button type="submit" id="subscribe-button">Subscribe to amazing {{this.category_name}} facts!</button>
+          </form>
+          <br>
+          <br>
+          <form action="facts/send-cool-fact/{{this.id}}" method="POST">
+            <input type="hidden" name="sendtext" value="true">
+            <button type="submit" id="sms-button">Text me amazing {{this.category_name}} facts!</button>
+          </form>
         </div>
-    </div>
+      </div>
 
-      {{/each}}
-       {{/if}}
-             {{#unless logged_in}}
-            <h3>You must be <a href='/users/sign-in'>logged in</a> to subcribe to categories!</h3>
-            {{/unless}}
-<br>
-<br>
-<br>    
-<br>
-<h2> Facts </h2>
+    {{/each}}
+  {{/if}}
 
+  {{#unless logged_in}}
+    <h3>You must be <a href='/users/sign-in'>logged in</a> to subcribe to categories!</h3>
+  {{/unless}}
 
-<div class="row-fact">
-  {{#each facts}}
-    <div id="fact-wrap">
+  <br>
+  <br>
+  <br>
+  <br>
+  <h2> Facts </h2>
+
+  <div class="row-fact">
+    {{#each facts}}
+      <div id="fact-wrap">
         <p id="topic"> <h2>{{this.topic}} facts</h2></p>
-        <p id="fact-name"><h3>{{this.fact}}</h3> </p> 
+        <p id="fact-name"><h3>{{this.fact}}</h3> </p>
+      </div>
+    {{/each }}
+  </div>
+</section>
+<section id="last">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 text-center">
+        <h2 class="margin-top-0 wow fadeIn">Contact Us</h2>
+        <hr class="primary">
+        <p>We are always looking to improve our service.  Please contact us with any comments or suggestions.  Drop us an email below.</p>
+      </div>
+      <div class="col-lg-10 col-lg-offset-1 text-center">
+        <form class="contact-form row" action="mailto:nice2knowteam@gmail.com" method="get">
+          <div class="col-md-4">
+            <label></label>
+            <input type="text" class="form-control" placeholder="Name">
+          </div>
+          <div class="col-md-4">
+            <label></label>
+            <input type="text" class="form-control" placeholder="Email">
+          </div>
+          <div class="col-md-4">
+            <label></label>
+            <input type="text" class="form-control" placeholder="Phone">
+          </div>
+          <div class="col-md-12">
+            <label></label>
+            <textarea class="form-control" rows="9" placeholder="Your message here.."></textarea>
+          </div>
+          <br>
 
+          <p>
+            <br>
+            <label for="hear-about">How did you hear about us?</label>
+            <select name="referrer" id="hear-about">
+              <option value="google">Google</option>
+              <option value="friend">Friend</option>
+              <option value="advert">Advertisement</option>
+              <option value="other">Other</option>
+            </select>
+          </p>
+
+          <p>
+            <h4 class="margin-top-0 wow fadeIn">Would you visit again?<br />
+            <label><input type="radio" name="rating" value="yes" /> Yes</label>
+            <label><input type="radio" name="rating" value="no" /> No</label>
+            <label><input type="radio" name="rating" value="maybe" /> Maybe</label>
+            <br>
+            <label><input type="checkbox" name="subscribe" checked="checked" /> Sign me up for email updates</label>
+            <br>
+          </p>
+
+          <div class="col-md-4 col-md-offset-4">
+            <label></label>
+            <button type="button" data-toggle="modal" data-target="#alertModal" class="btn btn-primary btn-block btn-lg">Send <i class="ion-android-arrow-forward"></i></button>
+          </div>
+        </form>
+      </div>
     </div>
+  </div>
+</section>
+
+<div id="galleryModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h2>Category Title</h2>
+        <p>
+          Category description.
+        </p>
+
+        <!-- form buttons with routes -->
+        <form action="subscriptions/update/{{this.id}}?_method=PUT" method="POST">
+          <input type="hidden" name="subscribed" value="true">
+          <button type="submit" class="modalBtn">+Subscribe</button>
+        </form>
+        <form action="user_facts/create/{{this.id}}" method="POST">
+          <button type="submit" class="modalBtn">Send Text Now</button>
+        </form>
+        <p>
+          <br>
+          <button class="btn btn-primary btn-lg center-block" data-dismiss="modal" aria-hidden="true">Close <i class="ion-android-close"></i></button>
+        </p>
+      </div>
+    </div>
+  </div>
 </div>
-  {{/each }}
-  </section>
 
-
-  
-
-    <section id="last">
-        <div class="container">
-             <div class="row">
-             <form action="mailto:nice2knowteam@gmail.com" method="get">
-                <div class="col-lg-10 col-lg-offset-1 text-center">
-                    <form class="contact-form row">
-                    <p>
-                        <h4 class="margin-top-0 wow fadeIn ">We are always looking to improve our service.  Please contact us with any comments or suggestions.  Drop us an email below.</h4>
-                    </p>
-                        <div class="col-md-4">
-                            <label></label>
-                            <input type="text" class="form-control" placeholder="Name">
-                        </div>
-                        <div class="col-md-4">
-                            <label></label>
-                            <input type="text" class="form-control" placeholder="Email">
-                        </div>
-                        <div class="col-md-4">
-                            <label></label>
-                            <input type="text" class="form-control" placeholder="Phone">
-                        </div>
-                    <div class="col-md-12">
-                            <label></label>
-                            <textarea class="form-control" rows="9" placeholder="Your message here.."></textarea>
-                    </div>
-                    <br>
-                  
-                <p>
-                <br>
-                <h4 class="margin-top-0 wow fadeIn">
-                <label for="hear-about">How did you hear about us?</label>
-                <select name="referrer" id="hear-about">
-                    <option value="google">Google</option>
-                    <option value="friend">Friend</option>
-                    <option value="advert">Advertisement</option>
-                    <option value="other">Other</option>
-                </select>
-                </p>
-                <p>
-                <h4 class="margin-top-0 wow fadeIn">Would you visit again?<br />
-                <label><input type="radio" name="rating" value="yes" /> Yes</label>
-                <label><input type="radio" name="rating" value="no" /> No</label>
-                <label><input type="radio" name="rating" value="maybe" /> Maybe</label>
-                <h4 class="margin-top-0 wow fadeIn">
-                <label><input type="checkbox" name="subscribe" checked="checked" /> Sign me up for email updates</label><br />
-                </p>
-
-                <div class="col-md-4 col-md-offset-4">
-                    <label></label>
-                    <button type="button" data-toggle="modal" data-target="#alertModal" class="btn btn-primary btn-block btn-lg">Send <i class="ion-android-arrow-forward"></i></button>
-                </div>
-            </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div id="galleryModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-body">
-            <h2>Category Title</h2>
-            <p>
-              Category description.
-            </p>
-
-            <!-- basic buttons -->
-            <!-- <button class="modalBtn" id="subscribeBtn" type="button" name="subscribe" value="{{this}}">+Subscribe</button>
-            <button class="modalBtn" id="sendNowBtn" type="button" name="sendTextNow" value="{{this}}">Send Text Now</button> -->
-
-            <!-- form buttons with routes -->
-            <form action="subscriptions/update/{{this.id}}?_method=PUT" method="POST">
-              <input type="hidden" name="subscribed" value="true">
-              <button type="submit" class="modalBtn">+Subscribe</button>
-            </form>
-            <form action="user_facts/create/{{this.id}}" method="POST">
-              <button type="submit" class="modalBtn">Send Text Now</button>
-            </form>
-            <!-- <img src="//placehold.it/1200x700/222?text=..." id="galleryImage" class="img-responsive" /> -->
-            <p>
-                <br/>
-                <button class="btn btn-primary btn-lg center-block" data-dismiss="modal" aria-hidden="true">Close <i class="ion-android-close"></i></button>
-            </p>
-          </div>
-        </div>
-        </div>
+<div id="aboutModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <p class="text-center">Welcome {{#if logged_in}}{{username}}{{/if}}! <br> We are a team of developers who created an app tailored to giving our users (like you!) awesome facts and informative knowledge straight to your mobile device. Today, knowledge and enlightenment on various subjects is key to being ahead in this game of life! We saw this first hand and thought lets give people this information on the daily and so that they wouldn't even have to be at a computer or have to put in the additional searching to do so. By {{#unless logged_in}}<a href="/users/new">signing up</a> {{/unless}} for our site and then selecting categories of your personal interest, we easily send you texts daily of your favorite topics.
+        </p>
+        <br>
+        <button class="btn btn-primary btn-lg center-block" data-dismiss="modal" aria-hidden="true">OK <i class="ion-android-close"></i></button>
+      </div>
     </div>
-    <div id="aboutModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-body">
-            <p class="text-center">                Welcome  {{#if logged_in}}{{username}}{{/if}}! <br> We are a team of developers who created an app tailored to giving our users (like you!) awesome facts and informative knowledge straight to your mobile device. Today, knowledge and enlightenment on various subjects is key to being ahead in this game of life! We saw this first hand and thought lets give people this information on the daily and so that they wouldn't even have to be at a computer or have to put in the additional searching to do so. By {{#unless logged_in}}<a href="/users/new">signing up</a> {{/unless}} for our site and then selecting categories of your personal interest, we easily send you texts daily of your favorite topics. 
-</p>
-            <br/>
-            <button class="btn btn-primary btn-lg center-block" data-dismiss="modal" aria-hidden="true">OK <i class="ion-android-close"></i></button>
-          </div>
-        </div>
-        </div>
-    </div>
-    <div id="developersModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-body">
-            <h2 class="text-center">Our Team</h2>
-            <p class="text-center">We hope you enjoyed our site where we provide awesome facts straight to your mobile device through sms text message. We work extensively to provide the best user experience for you.</p>
-            <p class='text-center'>Vince Porta: Full-Stack Developer. Twilio api functionality and routing mysql database.</p>
-            <p class='text-center'>Robert Parker: Full-Stack Developer. Front-end functionality, user authentication, categories, mysql database routing and modal functionality.</p>
-            <p class='text-center'>Lisa VanOrden-Kaan: Full-Stack Developer. Front-end functionality, contact form routing, sign-in and register styles.
-            <p class='text-center'>James Lado: Full-Stack Developer. Front-end styles, mysql database, routing and modal functionality.
-            <br/>
-            <button class="btn btn-primary btn-lg center-block" data-dismiss="modal" aria-hidden="true">OK <i class="ion-android-close"></i></button>
-          </div>
-        </div>
-        </div>
-    </div>
+  </div>
+</div>
 
+<div id="developersModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h2 class="text-center">Our Team</h2>
+        <p class="text-center">We hope you enjoyed our site where we provide awesome facts straight to your mobile device through sms text message. We work extensively to provide the best user experience for you.</p>
+        <p class='text-center'>Vince Porta: Full-Stack Developer. Twilio api functionality and routing mysql database.</p>
+        <p class='text-center'>Robert Parker: Full-Stack Developer. Front-end functionality, user authentication, categories, mysql database routing and modal functionality.</p>
+        <p class='text-center'>Lisa VanOrden-Kaan: Full-Stack Developer. Front-end functionality, contact form routing, sign-in and register styles.
+        <p class='text-center'>James Lado: Full-Stack Developer. Front-end styles, mysql database, routing and modal functionality.
+        <br>
+        <button class="btn btn-primary btn-lg center-block" data-dismiss="modal" aria-hidden="true">OK <i class="ion-android-close"></i></button>
+      </div>
+    </div>
+  </div>
+</div>

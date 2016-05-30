@@ -14,7 +14,6 @@
     "handlebars": "^4.0.5",
     "method-override": "^2.3.6",
     "mysql": "^2.10.2",
-    "node-cron": "^1.1.1",
     "orm": "^3.1.0",
     "path": "^0.12.7",
     "promise": "^7.1.1",
@@ -30,7 +29,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jimmylado/Factify.git"
+    "url": "git+https://github.com/jimmylado/nice2know.git"
   },
   "keywords": [
     "facts",
@@ -39,7 +38,7 @@
   "author": "Lisa James Vincent Robert",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jimmylado/Factify/issues"
+    "url": "https://github.com/jimmylado/nice2know/issues"
   },
-  "homepage": "https://github.com/jimmylado/Factify#readme"
+  "homepage": "https://github.com/jimmylado/nice2know#readme"
 }

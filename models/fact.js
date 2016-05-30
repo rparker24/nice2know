@@ -1,7 +1,7 @@
 "use strict";
 
 var Category = require('../models/category.js');
-var User = require('../models/User.js');
+var User = require('../models/user.js');
 
 module.exports = function (sequelize, DataTypes) {
     var Fact = sequelize.define("Fact", {
@@ -11,25 +11,22 @@ module.exports = function (sequelize, DataTypes) {
             primaryKey: true
         },
         fact: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING
         },
-        topic: {
-            type: DataTypes.STRING,
-        },
-        // category_id: {
-        //     type: DataTypes.INTEGER,
-        // },
+        category_id: {
+            type: DataTypes.INTEGER
+        }
     },
     {
         underscored: true,
         freezeTableName: true,
         tableName: 'facts',
         timestamps: false,
-        
+
         classMethods: {
             associate: function(models) {
                 Fact.belongsToMany(models.User, {
-                   through: 'user_facts' 
+                   through: 'user_facts'
                 });
             }
         }
